@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/TextObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/FontReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/font.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/character.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/character.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/default.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shaders/default.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Components/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Components/FontRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Components/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Components/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/Transform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Listener/KeyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Listener/KeyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Listener/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Listener/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Renderer/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Renderer/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Renderer/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/SpriteSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Renderer/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Renderer/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Scene/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Scene/LevelScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/LevelScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/UI/ImGuiLayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Util/AssetPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Util/AssetPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Util/SpriteNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Util/SpriteNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/snow/pierce/Util/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Util/Time.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lwjglgaming2" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lwjglgaming2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lwjglgaming2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lwjglgaming2" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lwjglgaming2" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2poq4m3jy7MwoFTfwzhYBtf3WWa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Gradle.Build lwjglgaming2.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.lwjglgaming2 [:snow.pierce.Main.main()].executor": "Run",
+    "Gradle.lwjglgaming2 [build].executor": "Run",
+    "Gradle.lwjglgaming2 [clean].executor": "Run",
+    "Gradle.lwjglgaming2 [jar].executor": "Run",
+    "Gradle.lwjglgaming2.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/snow/IdeaProjects/lwjglgaming2/src/main/resources/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/images" />
+      <recent name="$PROJECT_DIR$/libs" />
+      <recent name="$PROJECT_DIR$/resources/images" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/snow/pierce" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$/resources/images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.snow.pierce.Main">
+    <configuration name="snow.pierce.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="snow.pierce.Main" />
+      <module name="lwjglgaming2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="snow.pierce.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lwjglgaming2 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="lwjglgaming2 [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="lwjglgaming2 [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.snow.pierce.Main" />
+      <item itemvalue="Gradle.lwjglgaming2 [build]" />
+      <item itemvalue="Gradle.lwjglgaming2 [clean]" />
+      <item itemvalue="Gradle.lwjglgaming2 [jar]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.lwjglgaming2 [build]" />
+        <item itemvalue="Gradle.lwjglgaming2 [clean]" />
+        <item itemvalue="Gradle.lwjglgaming2 [jar]" />
+        <item itemvalue="Application.snow.pierce.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="" />
+      <created>1733442588735</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733442588735</updated>
+      <workItem from="1733442589819" duration="8251000" />
+      <workItem from="1733590758790" duration="8293000" />
+      <workItem from="1734028036127" duration="11953000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
