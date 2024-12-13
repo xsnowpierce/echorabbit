@@ -20,6 +20,14 @@ allprojects {
     }
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'snow.pierce.Main'
+    }
+    from('src/main/resources'){
+        into('resources')
+    }
+}
 
 dependencies {
 

@@ -2,16 +2,12 @@ package snow.pierce.Scene;
 
 import org.joml.Vector2f;
 import snow.pierce.Components.*;
-import snow.pierce.Listener.KeyListener;
+import snow.pierce.Level.LevelLoader;
 import snow.pierce.Renderer.Camera;
 import snow.pierce.Renderer.SpriteSheet;
 import snow.pierce.Util.AssetPool;
 
-import static org.lwjgl.glfw.GLFW.*;
-
 public class LevelScene extends Scene {
-
-    private float cameraSpeed = 1;
 
     public LevelScene() {
 
@@ -28,12 +24,16 @@ public class LevelScene extends Scene {
 
         LevelLoader.LoadLevel(AssetPool.levelPath + "level.json", tiles);
 
-        TextObject text = new TextObject("Hello world 123", new Vector2f());
 
-        GameObject obj1 = new GameObject("Character", new Transform(new Vector2f(0, 0), new Vector2f(16, 16)), 0);
-        obj1.addComponent(new PlayerMovement());
-        obj1.addComponent(new SpriteRenderer(sprites.GetSprite(0)));
-        addGameObjectToScene(obj1);
+        TextObject text = new TextObject("Hello world 123", new Vector2f());
+        text.addComponent(new FollowCamera(new Vector2f(0, 0)));
+        addGameObjectToScene(text);
+
+        GameObject player = new GameObject("Player", new Transform(new Vector2f(0, 0), new Vector2f(16, 16)), 0);
+        player.addComponent(new PlayerMovement());
+        player.addComponent(new SpriteRenderer(sprites.GetSprite(0)));
+        player.addComponent(new CameraFollow());
+        addGameObjectToScene(player);
     }
 
     private void LoadResources() {

@@ -140,19 +140,9 @@ public class Window {
         float beginTime = Time.getTime();
         float endTime;
 
-        int frames = 0;
-        long lastFPSCheck = System.currentTimeMillis();
-
         while (!glfwWindowShouldClose(glfwWindow)) {
 
             long currentTime = System.nanoTime();
-            frames++;
-
-            if (System.currentTimeMillis() - lastFPSCheck >= 1000) {
-                System.out.println("FPS: " + frames);
-                frames = 0;
-                lastFPSCheck += 1000;
-            }
 
             double elapsedTime = (currentTime - lastTime) / 1_000_000_000.0;
 
@@ -160,8 +150,6 @@ public class Window {
                 currentTime = System.nanoTime();
                 elapsedTime = (currentTime - lastTime) / 1_000_000_000.0;
             }
-
-
 
             lastTime = System.nanoTime();
 

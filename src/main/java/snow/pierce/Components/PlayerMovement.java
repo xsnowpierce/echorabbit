@@ -12,8 +12,6 @@ public class PlayerMovement extends Component {
     @Override
     public void Update() {
 
-        Window.getScene().camera().position = gameObject.transform.position;
-
         if(KeyListener.isKeyPressed(GLFW_KEY_W)){
             gameObject.transform.position.y += playerMoveSpeed;
         }
