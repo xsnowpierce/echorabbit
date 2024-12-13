@@ -4,7 +4,6 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 import snow.pierce.Listener.KeyListener;
 import snow.pierce.Listener.MouseListener;
-import snow.pierce.Scene.LevelEditorScene;
 import snow.pierce.Scene.LevelScene;
 import snow.pierce.Scene.Scene;
 import snow.pierce.Util.Time;
@@ -40,11 +39,6 @@ public class Window {
     public static void changeScene(int newScene) {
         switch (newScene) {
             case 0:
-                currentScene = new LevelEditorScene();
-                currentScene.init();
-                currentScene.Start();
-                break;
-            case 1:
                 currentScene = new LevelScene();
                 currentScene.init();
                 currentScene.Start();
@@ -135,6 +129,10 @@ public class Window {
         Window.changeScene(0);
     }
 
+    int targetFPS = 60;
+    double frameTime = 1.0 / targetFPS; // Time per frame in seconds
+    long lastTime = System.nanoTime();
+
     public void loop() {
 
         System.out.println("Beginning loop");
@@ -142,8 +140,30 @@ public class Window {
         float beginTime = Time.getTime();
         float endTime;
 
+        int frames = 0;
+        long lastFPSCheck = System.currentTimeMillis();
+
         while (!glfwWindowShouldClose(glfwWindow)) {
 
+            long currentTime = System.nanoTime();
+            frames++;
+
+            if (System.currentTimeMillis() - lastFPSCheck >= 1000) {
+                System.out.println("FPS: " + frames);
+                frames = 0;
+                lastFPSCheck += 1000;
+            }
+
+            double elapsedTime = (currentTime - lastTime) / 1_000_000_000.0;
+
+            while (elapsedTime < frameTime) {
+                currentTime = System.nanoTime();
+                elapsedTime = (currentTime - lastTime) / 1_000_000_000.0;
+            }
+
+
+
+            lastTime = System.nanoTime();
 
             // Poll events
             glfwPollEvents();

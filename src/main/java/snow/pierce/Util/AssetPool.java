@@ -15,6 +15,7 @@ public class AssetPool {
     private static Map<String, SpriteSheet> spriteSheetMap = new HashMap<>();
     public static String shaderPath = "src/main/resources/shaders/";
     public static String imagesPath = "src/main/resources/images/";
+    public static String levelPath = "src/main/resources/levels/";
 
     public static Shader getShader(String resourceName) {
         File file = new File(resourceName);
