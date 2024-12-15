@@ -1,8 +1,8 @@
-package snow.pierce.Components;
+package snow.pierce.Components.Character;
 
 import org.joml.Vector2f;
+import snow.pierce.Components.Component;
 import snow.pierce.Listener.KeyListener;
-import snow.pierce.Renderer.Window;
 
 import static org.lwjgl.glfw.GLFW.*;
 

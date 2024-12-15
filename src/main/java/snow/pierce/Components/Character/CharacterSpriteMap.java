@@ -1,4 +1,4 @@
-package snow.pierce.Components;
+package snow.pierce.Components.Character;
 
 import snow.pierce.Renderer.Sprite;
 

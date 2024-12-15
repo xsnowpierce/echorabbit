@@ -1,6 +1,8 @@
-package snow.pierce.Components;
+package snow.pierce.Components.Character;
 
 import org.joml.Vector2f;
+import snow.pierce.Components.SpriteAnimator;
+import snow.pierce.Components.SpriteRenderer;
 
 import java.util.Objects;
 

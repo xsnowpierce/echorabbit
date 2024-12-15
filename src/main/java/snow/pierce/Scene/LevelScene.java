@@ -2,9 +2,10 @@ package snow.pierce.Scene;
 
 import org.joml.Vector2f;
 import snow.pierce.Components.*;
+import snow.pierce.Components.Character.CharacterSpriteAnimator;
+import snow.pierce.Components.Character.PlayerMovement;
 import snow.pierce.Level.LevelLoader;
 import snow.pierce.Renderer.Camera;
-import snow.pierce.Renderer.Sprite;
 import snow.pierce.Renderer.SpriteSheet;
 import snow.pierce.Util.AssetPool;
 import snow.pierce.Util.PlayerSpriteSet;

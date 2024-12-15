@@ -13,6 +13,9 @@ project.ext.imguiVersion = "1.87.0"
 
 allprojects {
     repositories {
+        flatDir{
+            dirs 'libs'
+        }
         mavenCentral()
         maven {
             url "https://jitpack.io"
@@ -37,6 +40,8 @@ dependencies {
         implementation "org.lwjgl:lwjgl$it:$lwjglVersion"
         implementation "org.lwjgl:lwjgl$it::$lwjglNatives"
     }
+
+    implementation name: 'jbox2d-library'
 
     implementation 'com.github.cliftonlabs:json-simple:4.0.1'
     implementation "org.lwjgl:lwjgl"

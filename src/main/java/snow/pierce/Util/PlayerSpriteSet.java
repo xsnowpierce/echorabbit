@@ -1,6 +1,6 @@
 package snow.pierce.Util;
 
-import snow.pierce.Components.CharacterSpriteMap;
+import snow.pierce.Components.Character.CharacterSpriteMap;
 import snow.pierce.Renderer.Sprite;
 import snow.pierce.Renderer.SpriteSheet;
 
