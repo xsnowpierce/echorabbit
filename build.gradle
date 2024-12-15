@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+}
+
+group 'snow.pierce'
+version '0.0'
+
+
+project.ext.lwjglVersion = "3.3.4"
+project.ext.jomlVersion = "1.10.7"
+project.ext.lwjglNatives = "natives-linux"
+project.ext.imguiVersion = "1.87.0"
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'snow.pierce.Main'
+    }
+    from('src/main/resources'){
+        into('resources')
+    }
+}
+
+dependencies {
+
+    implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
+
+    ['', '-opengl', '-glfw'].each {
+        implementation "org.lwjgl:lwjgl$it:$lwjglVersion"
+        implementation "org.lwjgl:lwjgl$it::$lwjglNatives"
+    }
+
+    implementation 'com.github.cliftonlabs:json-simple:4.0.1'
+    implementation "org.lwjgl:lwjgl"
+    implementation "org.lwjgl:lwjgl-assimp"
+    implementation "org.lwjgl:lwjgl-glfw"
+    implementation "org.lwjgl:lwjgl-nfd"
+    implementation "org.lwjgl:lwjgl-openal"
+    implementation "org.lwjgl:lwjgl-opengl"
+    implementation "org.lwjgl:lwjgl-stb"
+    runtimeOnly "org.lwjgl:lwjgl::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-assimp::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-glfw::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-nfd::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-openal::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-opengl::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-stb::$lwjglNatives"
+    implementation "org.joml:joml:${jomlVersion}"
+
+}
