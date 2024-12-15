@@ -13,7 +13,7 @@ public class CameraFollow extends Component {
 
     @Override
     public void Update() {
-        Vector2f position = gameObject.transform.position;
+        Vector2f position = new Vector2f(gameObject.transform.position);
         position.x += offset.x;
         position.y += offset.y;
         Window.getScene().camera().position = position;

@@ -26,17 +26,14 @@ public class LevelScene extends Scene {
 
         LevelLoader.LoadLevel(AssetPool.levelPath + "level.json", tiles);
 
-
         //TextObject text = new TextObject("Hello world 123", new Vector2f());
         //text.addComponent(new FollowCamera(new Vector2f(0, 0)));
         //addGameObjectToScene(text);
 
-
-
         GameObject player = new GameObject("Player", new Transform(new Vector2f(0, 0), new Vector2f(16, 16)), 0);
         player.addComponent(new PlayerMovement());
         player.addComponent(new SpriteRenderer(sprites.GetSprite(0)));
-        player.addComponent(new CameraFollow(new Vector2f(0, 0)));
+        player.addComponent(new CameraFollow(new Vector2f(-camera.getSize().x / 2f + 8, -camera.getSize().y / 2f + 8)));
         player.addComponent(new CharacterSpriteAnimator(PlayerSpriteSet.GetPlayerSpriteMap(), 8, player.getComponent(SpriteRenderer.class), player.getComponent(PlayerMovement.class)));
         addGameObjectToScene(player);
     }
