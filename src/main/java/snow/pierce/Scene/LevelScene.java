@@ -4,8 +4,10 @@ import org.joml.Vector2f;
 import snow.pierce.Components.*;
 import snow.pierce.Level.LevelLoader;
 import snow.pierce.Renderer.Camera;
+import snow.pierce.Renderer.Sprite;
 import snow.pierce.Renderer.SpriteSheet;
 import snow.pierce.Util.AssetPool;
+import snow.pierce.Util.PlayerSpriteSet;
 
 public class LevelScene extends Scene {
 
@@ -25,14 +27,17 @@ public class LevelScene extends Scene {
         LevelLoader.LoadLevel(AssetPool.levelPath + "level.json", tiles);
 
 
-        TextObject text = new TextObject("Hello world 123", new Vector2f());
-        text.addComponent(new FollowCamera(new Vector2f(0, 0)));
-        addGameObjectToScene(text);
+        //TextObject text = new TextObject("Hello world 123", new Vector2f());
+        //text.addComponent(new FollowCamera(new Vector2f(0, 0)));
+        //addGameObjectToScene(text);
+
+
 
         GameObject player = new GameObject("Player", new Transform(new Vector2f(0, 0), new Vector2f(16, 16)), 0);
         player.addComponent(new PlayerMovement());
         player.addComponent(new SpriteRenderer(sprites.GetSprite(0)));
-        player.addComponent(new CameraFollow());
+        player.addComponent(new CameraFollow(new Vector2f(0, 0)));
+        player.addComponent(new CharacterSpriteAnimator(PlayerSpriteSet.GetPlayerSpriteMap(), 8, player.getComponent(SpriteRenderer.class), player.getComponent(PlayerMovement.class)));
         addGameObjectToScene(player);
     }
 
@@ -41,7 +46,7 @@ public class LevelScene extends Scene {
 
         AssetPool.addSpriteSheet(AssetPool.imagesPath + "character.png",
                 new SpriteSheet(AssetPool.getTexture(AssetPool.imagesPath + "character.png"),
-                        16, 16, 4, 0));
+                        16, 16, 16, 0));
 
         AssetPool.addSpriteSheet(AssetPool.imagesPath + "tiles.png",
                 new SpriteSheet(AssetPool.getTexture(AssetPool.imagesPath + "tiles.png"),

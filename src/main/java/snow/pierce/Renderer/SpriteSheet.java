@@ -47,4 +47,7 @@ public class SpriteSheet {
         return sprites.get(index);
     }
 
+    public Sprite[] GetSprites(){
+        return sprites.toArray(new Sprite[0]);
+    }
 }
