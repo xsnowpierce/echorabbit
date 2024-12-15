@@ -1,6 +1,7 @@
 package snow.pierce.Renderer;
 
 import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import snow.pierce.Listener.KeyListener;
 import snow.pierce.Listener.MouseListener;
@@ -98,6 +99,13 @@ public class Window {
         if (glfwWindow == NULL) {
             throw new IllegalStateException("Failed to create the GLFW window.");
         }
+
+        /* Center window on screen */
+        GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+        glfwSetWindowPos(glfwWindow,
+                (vidmode.width() - width) / 2,
+                (vidmode.height() - height) / 2
+        );
 
         System.out.println("GLFW window created");
 
