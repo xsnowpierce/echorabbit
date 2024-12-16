@@ -8,7 +8,6 @@ import snow.pierce.Renderer.SpriteSheet;
 import snow.pierce.Renderer.Window;
 import snow.pierce.Util.SpriteLayer;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,14 +34,16 @@ public class LevelLoader {
 
                 Chunk chunk = layer.getChunks()[j];
 
-                Vector2f startPosition = new Vector2f(chunk.getX(), chunk.getY());
-                Vector2f tileSize = new Vector2f(level.getTilewidth(), level.getTileheight());
+                Vector2f startPosition = new Vector2f(chunk.getX(), -chunk.getY()); // negative Y for LWJGL shenanigans
+                Vector2f chunkSize = new Vector2f(chunk.getWidth(), chunk.getHeight());
+                Vector2f tileSize = new Vector2f(level.getTileWidth(), level.getTileHeight());
 
-                System.out.println("loading chunk " + j + ", with starting position " + startPosition.x + ", " + startPosition.y);
+                System.out.println("loading chunk " + j + ", with starting position " +
+                        startPosition.x + ", " + startPosition.y + ", chunk size: " + chunkSize.x + ", " + chunkSize.y);
 
                 int currentRow = 0;
                 int currentCol = 0;
-                for (int k = 0; k < chunk.getData().size(); k++) {
+                for (int k = 0; k < chunk.tileArray.length; k++) {
 
                     int flippedRow = chunk.getHeight() - 1 - currentRow;
 
@@ -59,7 +60,7 @@ public class LevelLoader {
                     );
 
 
-                    int tileValue = ((BigDecimal) chunk.getData().get(k)).intValue();
+                    int tileValue = chunk.tileArray[k];
 
                     tile.addComponent(new SpriteRenderer(spriteSheet.GetSprite(tileValue - 1)));
                     Window.getScene().addGameObjectToScene(tile);

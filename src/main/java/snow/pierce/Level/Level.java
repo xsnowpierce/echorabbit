@@ -10,62 +10,49 @@ import java.util.List;
 
 public class Level {
 
-    int compressionlevel;
-    int height;
-    boolean infinite;
+    int compressionLevel;
+    int gridHeight;
+    boolean infiniteGrid;
     Layer[] layers; // Array of Layer data
-    int nextlayerid;
-    int nextobjectid;
-    String orientation;
-    String renderorder;
-    String tiledversion;
-    int tileheight;
-    JsonArray tilesets; // Array of TileSet data
-    int tilewidth;
+    String renderOrder;
+    int tileHeight;
+    TileSet[] tileSets; // Array of TileSet data
+    int tileWidth;
     String type;
-    String version;
-    int width;
+    int gridWidth;
 
     public Level(String filePath) {
 
         try (FileReader reader = new FileReader(filePath)) {
             JsonObject json = (JsonObject) Jsoner.deserialize(reader);
 
-            // Deserialize the JSON into a Map object
-            this.compressionlevel = ((BigDecimal) json.get("compressionlevel")).intValue();
-            this.height = ((BigDecimal) json.get("height")).intValue();
-            this.infinite = (boolean) json.get("infinite");
-            this.nextlayerid = ((BigDecimal) json.get("nextlayerid")).intValue();
-            this.nextobjectid = ((BigDecimal) json.get("nextobjectid")).intValue();
-            this.orientation = (String) json.get("orientation");
-            this.renderorder = (String) json.get("renderorder");
-            this.tiledversion = (String) json.get("tiledversion");
-            this.tileheight = ((BigDecimal) json.get("tileheight")).intValue();
-            this.tilewidth = ((BigDecimal) json.get("tilewidth")).intValue();
+            // Deserialize the JSON into a Level object
+            this.compressionLevel = ((BigDecimal) json.get("compressionlevel")).intValue();
+            this.gridHeight = ((BigDecimal) json.get("height")).intValue();
+            this.infiniteGrid = (boolean) json.get("infinite");
+            this.renderOrder = (String) json.get("renderorder");
+            this.tileHeight = ((BigDecimal) json.get("tileheight")).intValue();
+            this.tileWidth = ((BigDecimal) json.get("tilewidth")).intValue();
             this.type = (String) json.get("type");
-            this.version = (String) json.get("version");
-            this.width = ((BigDecimal) json.get("width")).intValue();
+            this.gridWidth = ((BigDecimal) json.get("width")).intValue();
 
             // Parse tilesets
-            JsonArray tilesetsArray = (JsonArray) json.get("tilesets");
-            this.tilesets = new JsonArray();
-            for (Object tsObj : tilesetsArray) {
-                JsonObject ts = (JsonObject) tsObj;
-                TileSet tileSet = new TileSet(((BigDecimal) ts.get("firstgid")).intValue(),
-                        (String) ts.get("source"));
-                this.tilesets.add(tileSet);
+            JsonArray tileSetsJson = (JsonArray) json.get("tilesets");
+
+            tileSets = new TileSet[tileSetsJson.size()];
+            for (int i = 0; i < tileSetsJson.size(); i++) {
+                TileSet set = new TileSet((JsonObject) tileSetsJson.get(i));
+                tileSets[i] = set;
             }
-            System.out.println("tilset size " + this.tilesets.size());
 
             // Parse layers
             JsonArray layersArray = (JsonArray) json.get("layers");
-            List<Layer> layerList = new ArrayList<>();
-            for (Object layerObj : layersArray) {
-                Layer layer = getLayer((JsonObject) layerObj);
 
-                layerList.add(layer);
+            layers = new Layer[layersArray.size()];
+            for (int i = 0; i < layersArray.size(); i++) {
+                layers[i] = getLayer((JsonObject) layersArray.get(i));
             }
-            this.layers = layerList.toArray(new Layer[layerList.size()]);
+
             System.out.println("layer size " + this.layers.length);
 
         } catch (IOException | JsonException e) {
@@ -102,104 +89,45 @@ public class Level {
         return layer;
     }
 
+
     public int getCompressionLevel() {
-        return compressionlevel;
+        return compressionLevel;
     }
 
-    public int getHeight() {
-        return height;
+    public int getGridHeight() {
+        return gridHeight;
     }
 
-    public boolean isInfinite() {
-        return infinite;
+    public boolean isInfiniteGrid() {
+        return infiniteGrid;
     }
 
     public Layer[] getLayers() {
         return layers;
     }
 
-    public int getNextlayerid() {
-        return nextlayerid;
+    public String getRenderOrder() {
+        return renderOrder;
     }
 
-    public int getNextobjectid() {
-        return nextobjectid;
+    public int getTileHeight() {
+        return tileHeight;
     }
 
-    public String getOrientation() {
-        return orientation;
+    public TileSet[] getTileSets() {
+        return tileSets;
     }
 
-    public String getRenderorder() {
-        return renderorder;
-    }
-
-    public String getTiledversion() {
-        return tiledversion;
-    }
-
-    public int getTileheight() {
-        return tileheight;
-    }
-
-    public JsonArray getTilesets() {
-        return tilesets;
-    }
-
-    public int getTilewidth() {
-        return tilewidth;
+    public int getTileWidth() {
+        return tileWidth;
     }
 
     public String getType() {
         return type;
     }
 
-    public String getVersion() {
-        return version;
+    public int getGridWidth() {
+        return gridWidth;
     }
-
-    public int getWidth() {
-        return width;
-    }
-
-    /*
-    // Method to display map details
-    public static void printMapDetails(Map map) {
-        if (map == null) {
-            System.out.println("Error reading map.");
-            return;
-        }
-
-        System.out.println("Map Details:");
-        System.out.println("Compression Level: " + map.compressionlevel);
-        System.out.println("Height: " + map.height);
-        System.out.println("Infinite: " + map.infinite);
-        System.out.println("Next Layer ID: " + map.nextlayerid);
-        System.out.println("Orientation: " + map.orientation);
-        System.out.println("Tile Height: " + map.tileheight);
-        System.out.println("Tile Width: " + map.tilewidth);
-
-        System.out.println("\nTilesets:");
-        for (Object tsObj : map.tilesets) {
-            TileSet ts = (TileSet) tsObj;
-            System.out.println("  - First GID: " + ts.firstgid + ", Source: " + ts.source);
-        }
-
-        System.out.println("\nLayers:");
-        for (Object layerObj : map.layers) {
-            Layer layer = (Layer) layerObj;
-            System.out.println("  - Layer Name: " + layer.name);
-            System.out.println("    Type: " + layer.type);
-            System.out.println("    Visible: " + layer.visible);
-            System.out.println("    Dimensions: " + layer.width + "x" + layer.height);
-            System.out.println("    Chunks:");
-            for (Object chunkObj : layer.chunks) {
-                Chunk chunk = (Chunk) chunkObj;
-                System.out.println("      - Chunk X: " + chunk.x + ", Y: " + chunk.y + ", Width: " + chunk.width + ", Height: " + chunk.height);
-                System.out.println("        Data: " + chunk.data);
-            }
-        }
-    }
-    */
 }
 

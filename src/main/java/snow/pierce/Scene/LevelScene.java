@@ -1,11 +1,10 @@
 package snow.pierce.Scene;
 
 import org.joml.Vector2f;
+import snow.pierce.Collision.AABB;
 import snow.pierce.Components.*;
 import snow.pierce.Components.Character.CharacterSpriteAnimator;
 import snow.pierce.Components.Character.PlayerMovement;
-import snow.pierce.Components.Physics2D.Box2DCollider;
-import snow.pierce.Components.Physics2D.Rigidbody2D;
 import snow.pierce.Level.LevelLoader;
 import snow.pierce.Renderer.Camera;
 import snow.pierce.Renderer.SpriteSheet;
@@ -18,6 +17,7 @@ public class LevelScene extends Scene {
     public LevelScene() {
 
     }
+
     @Override
     public void init() {
 
@@ -28,16 +28,17 @@ public class LevelScene extends Scene {
         SpriteSheet sprites = AssetPool.getSpriteSheet(AssetPool.imagesPath + "character.png");
         SpriteSheet tiles = AssetPool.getSpriteSheet(AssetPool.imagesPath + "tiles.png");
 
-        LevelLoader.LoadLevel(AssetPool.levelPath + "level.json", tiles);
+        LevelLoader.LoadLevel(AssetPool.levelPath + "newlevel.json", tiles);
 
         GameObject player = new GameObject("Player", new Transform(new Vector2f(0, 0), new Vector2f(16, 16)), SpriteLayer.ENTITY_LAYER);
         player.addComponent(new PlayerMovement());
         player.addComponent(new SpriteRenderer(sprites.GetSprite(0)));
         player.addComponent(new CameraFollow(new Vector2f(-camera.getSize().x / 2f, -camera.getSize().y / 2f)));
         player.addComponent(new CharacterSpriteAnimator(PlayerSpriteSet.GetPlayerSpriteMap(), 8, player.getComponent(SpriteRenderer.class), player.getComponent(PlayerMovement.class)));
-        player.addComponent(new Rigidbody2D());
-        player.addComponent(new Box2DCollider());
         addGameObjectToScene(player);
+
+        AABB box1 = new AABB(new Vector2f(0, 0), new Vector2f(16, 16));
+        AABB box2 = new AABB(new Vector2f(2, 0), new Vector2f(16, 16));
     }
 
     private void LoadResources() {
