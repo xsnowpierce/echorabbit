@@ -3,6 +3,10 @@ package snow.pierce.Renderer;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
+import snow.pierce.Components.GameObject;
+import snow.pierce.EventSystem.EventSystem;
+import snow.pierce.EventSystem.Events.Event;
+import snow.pierce.EventSystem.Observer;
 import snow.pierce.Listener.KeyListener;
 import snow.pierce.Listener.MouseListener;
 import snow.pierce.Scene.LevelScene;
@@ -14,7 +18,7 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
-public class Window {
+public class Window implements Observer {
 
     private int width, height;
     private String title;
@@ -31,22 +35,16 @@ public class Window {
         this.width = 432;
         this.height = 480;
         this.title = "Game";
-        r = 0;
-        b = 0;
-        g = 0;
-        a = 1;
+        EventSystem.addObserver(this);
     }
 
     public static void changeScene(int newScene) {
-        switch (newScene) {
-            case 0:
-                currentScene = new LevelScene();
-                currentScene.init();
-                currentScene.Start();
-                break;
-            default:
-                assert false : "Unknown scene '" + newScene + "'";
-                break;
+        if (newScene == 0) {
+            currentScene = new LevelScene();
+            currentScene.init();
+            currentScene.Start();
+        } else {
+            assert false : "Unknown scene '" + newScene + "'";
         }
     }
 
@@ -185,5 +183,10 @@ public class Window {
 
     public static int getHeight(){
         return get().height;
+    }
+
+    @Override
+    public void onNotify(GameObject object, Event event) {
+        // todo this
     }
 }

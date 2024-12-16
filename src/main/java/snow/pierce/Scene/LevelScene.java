@@ -27,10 +27,6 @@ public class LevelScene extends Scene {
 
         LevelLoader.LoadLevel(AssetPool.levelPath + "level.json", tiles);
 
-        //TextObject text = new TextObject("Hello world 123", new Vector2f());
-        //text.addComponent(new FollowCamera(new Vector2f(0, 0)));
-        //addGameObjectToScene(text);
-
         GameObject player = new GameObject("Player", new Transform(new Vector2f(0, 0), new Vector2f(16, 16)), 0);
         player.addComponent(new PlayerMovement());
         player.addComponent(new SpriteRenderer(sprites.GetSprite(0)));

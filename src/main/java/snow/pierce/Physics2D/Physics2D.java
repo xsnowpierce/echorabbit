@@ -9,6 +9,7 @@ import org.jbox2d.dynamics.World;
 import org.joml.Vector2f;
 import snow.pierce.Components.GameObject;
 import snow.pierce.Components.Physics2D.Box2DCollider;
+import snow.pierce.Components.Physics2D.CircleCollider;
 import snow.pierce.Components.Physics2D.Rigidbody2D;
 import snow.pierce.Components.Transform;
 import snow.pierce.Util.Time;
@@ -56,25 +57,41 @@ public class Physics2D {
         }
 
         PolygonShape shape = new PolygonShape();
-        Box2DCollider box2DCollider = object.getComponent(Box2DCollider.class);
+        CircleCollider circleCollider;
+        Box2DCollider box2DCollider;
 
-        if(box2DCollider == null){
-            System.err.println("Tried to add box2D collider with null collider object.");
-            return;
+        if((circleCollider = object.getComponent(CircleCollider.class)) != null){
+            shape.setRadius(circleCollider.getRadius());
         }
+        else if((box2DCollider = object.getComponent(Box2DCollider.class)) != null){
 
-        Vector2f halfSize = new Vector2f(box2DCollider.getHalfSize()).mul(0.5f);
-        Vector2f offset = box2DCollider.getOffset();
-        Vector2f origin = new Vector2f(box2DCollider.getOrigin());
-        shape.setAsBox(halfSize.x, halfSize.y, new Vec2(origin.x, origin.y), 0);
+            Vector2f halfSize = new Vector2f(box2DCollider.getHalfSize()).mul(0.5f);
+            Vector2f offset = box2DCollider.getOffset();
+            Vector2f origin = new Vector2f(box2DCollider.getOrigin());
+            shape.setAsBox(halfSize.x, halfSize.y, new Vec2(origin.x, origin.y), 0);
 
-        Vec2 position = bodyDef.position;
-        float xPosition = position.x + offset.x;
-        float yPosition = position.y + offset.y;
-        bodyDef.position.set(xPosition, yPosition);
+            Vec2 position = bodyDef.position;
+            float xPosition = position.x + offset.x;
+            float yPosition = position.y + offset.y;
+            bodyDef.position.set(xPosition, yPosition);
+        }
+        else{
+            assert false : "Tried to add collider of unknown shape.";
+        }
 
         Body body = this.world.createBody(bodyDef);
         rbody.setRawBody(body);
         body.createFixture(shape, rbody.getMass());
+    }
+
+    public void DestroyGameObject(GameObject object){
+
+        Rigidbody2D rbody = object.getComponent(Rigidbody2D.class);
+
+        if(rbody == null) return;
+        if(rbody.getRawBody() == null) return;
+
+        world.destroyBody(rbody.getRawBody());
+        rbody.setRawBody(null);
     }
 }

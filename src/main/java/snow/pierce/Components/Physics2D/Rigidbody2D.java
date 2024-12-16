@@ -16,7 +16,7 @@ public class Rigidbody2D extends Component {
     private boolean fixedRotation = true;
     private boolean continuousCollision = true;
 
-    private Body rawBody = null;
+    private transient Body rawBody = null;
 
     @Override
     public void Update() {
@@ -24,6 +24,7 @@ public class Rigidbody2D extends Component {
             this.gameObject.transform.position.set(
                     rawBody.getPosition().x, rawBody.getPosition().y
             );
+            gameObject.transform.rotation = (float) Math.toDegrees(rawBody.getAngle());
         }
     }
 
