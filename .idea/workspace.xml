@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="lwjglgaming2.main:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="tidying up world generation">
+      <change afterPath="$PROJECT_DIR$/leveleditor/level project/untitled.tiled-project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leveleditor/level project/untitled.tiled-session" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leveleditor/level project/untitled.tmx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;xsnowpierce&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/xsnowpierce/lwjglgaming2.git&quot;,
+    &quot;accountId&quot;: &quot;8bc7fa68-57d8-4ffc-9973-47fa7703ba91&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2poq4m3jy7MwoFTfwzhYBtf3WWa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Game.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Gradle.Build echorabbit.executor": "Run",
+    "Gradle.Build lwjglgaming2.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.echorabbit [:snow.pierce.Main.main()].executor": "Run",
+    "Gradle.lwjglgaming2 [:snow.pierce.Main.main()].executor": "Run",
+    "Gradle.lwjglgaming2 [:snow.pierce.Util.Level.main()].executor": "Run",
+    "Gradle.lwjglgaming2 [build].executor": "Run",
+    "Gradle.lwjglgaming2 [clean].executor": "Run",
+    "Gradle.lwjglgaming2 [jar].executor": "Run",
+    "Gradle.lwjglgaming2.executor": "Run",
+    "JAR Application.lwjglgaming2.main.jar.executor": "Run",
+    "JAR Application.lwjglgaming2_jar.jar.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/snow/IdeaProjects/echorabbit/leveleditor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.general",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/leveleditor" />
+      <recent name="$PROJECT_DIR$/src/main/resources/levels" />
+      <recent name="$PROJECT_DIR$/src/main/resources/images" />
+      <recent name="$PROJECT_DIR$/libs" />
+      <recent name="$PROJECT_DIR$/resources/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/snow/pierce" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$/resources/images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Game" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="snow.pierce.Main" />
+      <module name="echorabbit.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="" />
+      <created>1733442588735</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733442588735</updated>
+      <workItem from="1733442589819" duration="8251000" />
+      <workItem from="1733590758790" duration="8293000" />
+      <workItem from="1734028036127" duration="31998000" />
+      <workItem from="1734111988237" duration="577000" />
+      <workItem from="1734112573967" duration="8337000" />
+      <workItem from="1734217065751" duration="6133000" />
+      <workItem from="1734224306018" duration="804000" />
+      <workItem from="1734363273870" duration="15451000" />
+    </task>
+    <task id="LOCAL-00001" summary="added font">
+      <option name="closed" value="true" />
+      <created>1734043549915</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734043549915</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added font">
+      <option name="closed" value="true" />
+      <created>1734043633617</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734043633617</updated>
+    </task>
+    <task id="LOCAL-00003" summary="level loading and rendering">
+      <option name="closed" value="true" />
+      <created>1734109286724</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734109286724</updated>
+    </task>
+    <task id="LOCAL-00004" summary="level loading and rendering">
+      <option name="closed" value="true" />
+      <created>1734109429464</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734109429464</updated>
+    </task>
+    <task id="LOCAL-00005" summary="character movement, some ui following">
+      <option name="closed" value="true" />
+      <created>1734116275769</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734116275769</updated>
+    </task>
+    <task id="LOCAL-00006" summary="character animation">
+      <option name="closed" value="true" />
+      <created>1734223775717</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734223775717</updated>
+    </task>
+    <task id="LOCAL-00007" summary="character animation">
+      <option name="closed" value="true" />
+      <created>1734224013415</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734224013415</updated>
+    </task>
+    <task id="LOCAL-00008" summary="git stuff">
+      <option name="closed" value="true" />
+      <created>1734224889469</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734224889469</updated>
+    </task>
+    <task id="LOCAL-00009" summary="further physics and event system">
+      <option name="closed" value="true" />
+      <created>1734366048573</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734366048573</updated>
+    </task>
+    <task id="LOCAL-00010" summary="further physics and event system">
+      <option name="closed" value="true" />
+      <created>1734368448479</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734368448479</updated>
+    </task>
+    <task id="LOCAL-00011" summary="tidying up world generation">
+      <option name="closed" value="true" />
+      <created>1734378379550</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734378379550</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added font" />
+    <MESSAGE value="level loading and rendering" />
+    <MESSAGE value="character movement, some ui following" />
+    <MESSAGE value="character animation" />
+    <MESSAGE value="git stuff" />
+    <MESSAGE value="further physics and event system" />
+    <MESSAGE value="tidying up world generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="tidying up world generation" />
+  </component>
+</project>
