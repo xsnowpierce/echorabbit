@@ -9,44 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="stuff">
-      <change afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/LoadedChunk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/Character/PlayerMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/Character/PlayerMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Chunk.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Chunk.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Layer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/LevelLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/LevelLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/TileSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/TileSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/TileType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/TileType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/SpriteSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/SpriteSheet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Scene/LevelScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Scene/LevelScene.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/images/tiles.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/images/tiles.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/levels/newlevel.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/levels/newlevel.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Level.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LevelLoader.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TileSet.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leveleditor/level project/untitled.tiled-session" beforeDir="false" afterPath="$PROJECT_DIR$/leveleditor/level project/untitled.tiled-session" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leveleditor/level project/untitled.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/leveleditor/level project/untitled.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/Character/PlayerMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/Character/PlayerMovement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Chunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Chunk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/LevelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/LevelLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/TileSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/TileSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/TileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/TileType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/SpriteSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/LevelScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/LevelScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/tiles.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/tiles.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/levels/newlevel.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/levels/newlevel.json" afterDir="false" />
-    </list>
+    <list default="true" id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="current chunk detection" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +180,7 @@
       <workItem from="1734224306018" duration="804000" />
       <workItem from="1734363273870" duration="15451000" />
       <workItem from="1734378734161" duration="145000" />
-      <workItem from="1734378886651" duration="8386000" />
+      <workItem from="1734378886651" duration="8999000" />
     </task>
     <task id="LOCAL-00001" summary="added font">
       <option name="closed" value="true" />
@@ -331,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734379247626</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="current chunk detection">
+      <option name="closed" value="true" />
+      <created>1734393529249</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1734393529249</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +329,7 @@
     <MESSAGE value="tidying up world generation" />
     <MESSAGE value="shit" />
     <MESSAGE value="stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
+    <MESSAGE value="current chunk detection" />
+    <option name="LAST_COMMIT_MESSAGE" value="current chunk detection" />
   </component>
 </project>
