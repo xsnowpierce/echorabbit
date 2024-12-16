@@ -2,7 +2,10 @@ package snow.pierce.Components.Character;
 
 import org.joml.Vector2f;
 import snow.pierce.Components.Component;
+import snow.pierce.Level.Chunk;
+import snow.pierce.Level.LevelLoader;
 import snow.pierce.Listener.KeyListener;
+import snow.pierce.Renderer.Window;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -34,6 +37,11 @@ public class PlayerMovement extends Component {
             gameObject.transform.position.x += playerMoveSpeed;
             lastMovement = new Vector2f(1, 0);
             isMovementPressed = true;
+        }
+
+        Chunk currentChunk = LevelLoader.getCurrentLevel().getChunkFromPosition(0, gameObject.transform.position);
+        if(currentChunk != null){
+            System.out.println(currentChunk.getX() + " " + currentChunk.getY());
         }
     }
 

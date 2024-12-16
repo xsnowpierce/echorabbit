@@ -1,8 +1,8 @@
 package snow.pierce.Level;
 
-import com.github.cliftonlabs.json_simple.JsonArray;
+import org.joml.Vector2i;
 
-import java.util.List;
+import java.util.Map;
 
 public class Layer {
     int id;
@@ -13,9 +13,11 @@ public class Layer {
     int height;
     int x;
     int y;
-    Chunk[] chunks;
+    Map<Vector2i, Chunk> chunkMap;
+    Chunk[] chunkArray;
+    int layerWidth;
 
-    public Layer(int id, String name, String type, boolean visible, int width, int height, int x, int y, Chunk[] chunks) {
+    public Layer(int id, String name, String type, boolean visible, int width, int height, int x, int y, Map<Vector2i, Chunk> chunkMap, Chunk[] chunkArray, int layerWidth) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -24,11 +26,17 @@ public class Layer {
         this.height = height;
         this.x = x;
         this.y = y;
-        this.chunks = chunks;
+        this.chunkMap = chunkMap;
+        this.chunkArray = chunkArray;
+        this.layerWidth = layerWidth;
     }
 
-    public Chunk[] getChunks() {
-        return chunks;
+    public Map<Vector2i, Chunk> getChunkMap() {
+        return chunkMap;
+    }
+
+    public Chunk[] getChunkArray() {
+        return chunkArray;
     }
 
     public int getY() {
@@ -61,5 +69,9 @@ public class Layer {
 
     public int getId() {
         return id;
+    }
+
+    public int getLayerWidth() {
+        return layerWidth;
     }
 }

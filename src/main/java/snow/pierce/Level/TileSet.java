@@ -28,7 +28,7 @@ public class TileSet {
         for (int i = 0; i < tiles.size(); i++) {
             JsonObject tile = (JsonObject) tiles.get(i);
 
-            TileType tileType = TileType.valueOf((String) tile.get("type"));
+            TileType tileType = TileType.fromString((String) tile.get("type"));
 
             Tile newTile = new Tile(tileType, (JsonArray) tile.get("properties"));
             this.tiles[i] = newTile;

@@ -50,7 +50,7 @@ public class LevelScene extends Scene {
 
         AssetPool.addSpriteSheet(AssetPool.imagesPath + "tiles.png",
                 new SpriteSheet(AssetPool.getTexture(AssetPool.imagesPath + "tiles.png"),
-                        16, 16, 2, 0));
+                        16, 16, 3, 0));
     }
 
     @Override

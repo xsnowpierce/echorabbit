@@ -44,6 +44,10 @@ public class SpriteSheet {
     }
 
     public Sprite GetSprite(int index){
+        //if(index < 0 || index >= sprites.size()){
+        //    System.err.println("Tried to access sprite at " + index + ", when array size is only " + sprites.size());
+        //    return GetSprite(0);
+        //}
         return sprites.get(index);
     }
 

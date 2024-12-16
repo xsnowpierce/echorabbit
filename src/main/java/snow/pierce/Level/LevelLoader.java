@@ -8,14 +8,11 @@ import snow.pierce.Renderer.SpriteSheet;
 import snow.pierce.Renderer.Window;
 import snow.pierce.Util.SpriteLayer;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LevelLoader {
 
     static String levelName;
     static boolean hasLevelLoaded;
-    static List<GameObject> tiles = new ArrayList<>();
+    static Level currentLevel;
 
     public static void LoadLevel(String filePath, SpriteSheet spriteSheet) {
 
@@ -23,20 +20,20 @@ public class LevelLoader {
             UnloadLevel();
         }
 
-        Level level = new Level(filePath);
+        currentLevel = new Level(filePath);
 
-        System.out.println("Level loaded. has " + level.getLayers().length + " layers");
+        System.out.println("Level loaded. has " + currentLevel.getLayers().length + " layers");
 
-        for (int i = 0; i < level.getLayers().length; i++) {
-            Layer layer = level.getLayers()[i];
+        for (int i = 0; i < currentLevel.getLayers().length; i++) {
+            Layer layer = currentLevel.getLayers()[i];
             System.out.println("loading layer " + i);
-            for (int j = 0; j < layer.getChunks().length; j++) {
+            for (int j = 0; j < layer.getChunkMap().size(); j++) {
 
-                Chunk chunk = layer.getChunks()[j];
+                Chunk chunk = layer.getChunkArray()[j];
 
                 Vector2f startPosition = new Vector2f(chunk.getX(), -chunk.getY()); // negative Y for LWJGL shenanigans
                 Vector2f chunkSize = new Vector2f(chunk.getWidth(), chunk.getHeight());
-                Vector2f tileSize = new Vector2f(level.getTileWidth(), level.getTileHeight());
+                Vector2f tileSize = currentLevel.getTileSize();
 
                 System.out.println("loading chunk " + j + ", with starting position " +
                         startPosition.x + ", " + startPosition.y + ", chunk size: " + chunkSize.x + ", " + chunkSize.y);
@@ -45,25 +42,25 @@ public class LevelLoader {
                 int currentCol = 0;
                 for (int k = 0; k < chunk.tileArray.length; k++) {
 
+                    int tileValue = chunk.tileArray[k];
                     int flippedRow = chunk.getHeight() - 1 - currentRow;
 
-                    GameObject tile = new GameObject(
-                            "tile",
-                            new Transform(
-                                    new Vector2f(
-                                            currentCol * tileSize.x + (startPosition.x * tileSize.x),
-                                            flippedRow * tileSize.y + (startPosition.y * tileSize.y)
-                                    ),
-                                    tileSize
-                            ),
-                            SpriteLayer.BACKGROUND_LAYER
-                    );
+                    if(tileValue - 1 >= 0){
+                        GameObject tile = new GameObject(
+                                "tile",
+                                new Transform(
+                                        new Vector2f(
+                                                currentCol * tileSize.x + (startPosition.x * tileSize.x),
+                                                flippedRow * tileSize.y + (startPosition.y * tileSize.y)
+                                        ),
+                                        tileSize
+                                ),
+                                SpriteLayer.BACKGROUND_LAYER
+                        );
 
-
-                    int tileValue = chunk.tileArray[k];
-
-                    tile.addComponent(new SpriteRenderer(spriteSheet.GetSprite(tileValue - 1)));
-                    Window.getScene().addGameObjectToScene(tile);
+                        tile.addComponent(new SpriteRenderer(spriteSheet.GetSprite(tileValue - 1)));
+                        Window.getScene().addGameObjectToScene(tile);
+                    }
 
                     currentCol ++;
 
@@ -76,17 +73,21 @@ public class LevelLoader {
         }
 
         hasLevelLoaded = true;
-        levelName = level.getType();
+        levelName = currentLevel.getType();
     }
 
     public static void UnloadLevel(){
 
-        for(GameObject object : tiles){
-            object.removeComponent(SpriteRenderer.class);
-            Window.getScene().removeGameObjectFromScene(object);
-        }
+        //for(GameObject object : tiles){
+        //    object.removeComponent(SpriteRenderer.class);
+        //    Window.getScene().removeGameObjectFromScene(object);
+        //}
 
         hasLevelLoaded = false;
         levelName = "";
+    }
+
+    public static Level getCurrentLevel() {
+        return currentLevel;
     }
 }

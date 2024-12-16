@@ -6,13 +6,15 @@ import java.math.BigDecimal;
 
 public class Chunk {
 
+    int chunkId;
     int[] tileArray;
     int height;
     int width;
     int x;
     int y;
 
-    public Chunk(JsonArray data, int height, int width, int x, int y) {
+    public Chunk(int chunkId, JsonArray data, int height, int width, int x, int y) {
+        this.chunkId = chunkId;
         this.tileArray = new int[data.size()];
         for (int i = 0; i < data.size(); i++) {
             tileArray[i] = ((BigDecimal) data.get(i)).intValue();
