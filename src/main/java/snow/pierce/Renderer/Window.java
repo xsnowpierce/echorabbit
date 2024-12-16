@@ -9,6 +9,7 @@ import snow.pierce.EventSystem.Events.Event;
 import snow.pierce.EventSystem.Observer;
 import snow.pierce.Listener.KeyListener;
 import snow.pierce.Listener.MouseListener;
+import snow.pierce.Physics2D.Physics2D;
 import snow.pierce.Scene.LevelScene;
 import snow.pierce.Scene.Scene;
 import snow.pierce.Util.Time;
@@ -188,5 +189,9 @@ public class Window implements Observer {
     @Override
     public void onNotify(GameObject object, Event event) {
         // todo this
+    }
+
+    public static Physics2D getPhysics2D() {
+        return currentScene.getPhysics();
     }
 }

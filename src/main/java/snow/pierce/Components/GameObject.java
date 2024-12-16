@@ -1,5 +1,7 @@
 package snow.pierce.Components;
 
+import snow.pierce.Util.SpriteLayer;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class GameObject {
     private List<Component> components;
     public Transform transform;
     private int zIndex;
+    private boolean isDead = false;
 
     public GameObject(String name) {
         this.name = name;
@@ -17,11 +20,11 @@ public class GameObject {
         this.zIndex = 0;
     }
 
-    public GameObject(String name, Transform transform, int zIndex) {
+    public GameObject(String name, Transform transform, SpriteLayer layer) {
         this.name = name;
         this.components = new ArrayList<>();
         this.transform = transform;
-        this.zIndex = zIndex;
+        this.zIndex = layer.getValue();
     }
 
     public <T extends Component> T getComponent(Class<T> componentClass) {
@@ -70,9 +73,18 @@ public class GameObject {
         for (int i=0; i < components.size(); i++) {
             components.get(i).Destroy();
         }
+        isDead = true;
     }
 
     public int zIndex(){
         return zIndex;
+    }
+
+    public boolean IsDead() {
+        return isDead;
+    }
+
+    public List<Component> getAllComponents() {
+        return components;
     }
 }

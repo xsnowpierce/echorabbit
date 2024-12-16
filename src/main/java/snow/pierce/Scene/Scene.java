@@ -1,6 +1,7 @@
 package snow.pierce.Scene;
 
 import snow.pierce.Components.GameObject;
+import snow.pierce.Physics2D.Physics2D;
 import snow.pierce.Renderer.Camera;
 import snow.pierce.Renderer.Renderer;
 
@@ -13,9 +14,10 @@ public abstract class Scene {
     protected Camera camera;
     private boolean isRunning = false;
     protected List<GameObject> gameObjects = new ArrayList<>();
+    private Physics2D physics2D;
 
     public Scene() {
-
+        this.physics2D = new Physics2D();
     }
 
     public void init() {
@@ -26,6 +28,7 @@ public abstract class Scene {
         for (GameObject go : gameObjects) {
             go.Start();
             this.renderer.add(go);
+            this.physics2D.add(go);
         }
         isRunning = true;
     }
@@ -44,9 +47,21 @@ public abstract class Scene {
         gameObjects.remove(go);
     }
 
-    public void Update(){}
+    public void Update(){
+
+        this.physics2D.Update();
+        for(GameObject go : gameObjects){
+            if(go.IsDead()){
+                this.physics2D.DestroyGameObject(go);
+            }
+        }
+    }
 
     public Camera camera() {
         return this.camera;
+    }
+
+    public Physics2D getPhysics() {
+        return physics2D;
     }
 }

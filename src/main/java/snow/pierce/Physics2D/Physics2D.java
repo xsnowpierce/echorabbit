@@ -25,6 +25,10 @@ public class Physics2D {
     private int velocityIterations = 8;
     private int positionIterations = 3;
 
+    public Physics2D() {
+        world.setContactListener(new GameContactListener());
+    }
+
     public void Update(){
         physicsTime += Time.deltaTime;
         if(physicsTime >= 0.0f){
@@ -36,7 +40,7 @@ public class Physics2D {
     public void add(GameObject object){
         Rigidbody2D rbody = object.getComponent(Rigidbody2D.class);
         if (rbody == null || rbody.getRawBody() == null) {
-            System.err.println("Tried to add object with null rigidbody to physics engine.");
+            //System.err.println("Tried to add object with null rigidbody to physics engine.");
             return;
         }
 

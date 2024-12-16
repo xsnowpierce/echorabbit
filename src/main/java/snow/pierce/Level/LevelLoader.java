@@ -6,6 +6,7 @@ import snow.pierce.Components.SpriteRenderer;
 import snow.pierce.Components.Transform;
 import snow.pierce.Renderer.SpriteSheet;
 import snow.pierce.Renderer.Window;
+import snow.pierce.Util.SpriteLayer;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class LevelLoader {
                                     ),
                                     tileSize
                             ),
-                            -1
+                            SpriteLayer.BACKGROUND_LAYER
                     );
 
 

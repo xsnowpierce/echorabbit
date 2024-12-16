@@ -3,11 +3,11 @@ package snow.pierce.Components;
 import org.joml.Vector2f;
 import snow.pierce.Renderer.FontReader;
 import snow.pierce.Renderer.Window;
+import snow.pierce.Util.SpriteLayer;
 
 public class TextObject extends GameObject {
 
     private final int FONT_SPRITE_SIZE = 8;
-    private final int FONT_Z_INDEX = 1;
 
     private String text;
 
@@ -30,7 +30,7 @@ public class TextObject extends GameObject {
         for(int i = 0; i < text.length(); i++) {
 
             GameObject letter = new GameObject("Word", new Transform(new Vector2f(currentPosition.x + positionXAdd, currentPosition.y),
-                    new Vector2f(FONT_SPRITE_SIZE, FONT_SPRITE_SIZE)), FONT_Z_INDEX);
+                    new Vector2f(FONT_SPRITE_SIZE, FONT_SPRITE_SIZE)), SpriteLayer.UI_LAYER);
 
             letter.addComponent(new SpriteRenderer(FontReader.GetCharacter(text.charAt(i))));
             letter.addComponent(new FollowCamera(new Vector2f(currentPosition.x + positionXAdd, currentPosition.y)));
