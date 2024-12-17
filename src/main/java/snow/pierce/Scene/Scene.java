@@ -45,4 +45,8 @@ public abstract class Scene {
     public Camera camera() {
         return this.camera;
     }
+
+    public Renderer getRenderer() {
+        return renderer;
+    }
 }

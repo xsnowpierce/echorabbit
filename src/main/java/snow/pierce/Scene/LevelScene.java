@@ -1,18 +1,27 @@
 package snow.pierce.Scene;
 
 import org.joml.Vector2f;
-import snow.pierce.Collision.AABB;
-import snow.pierce.Components.*;
+import snow.pierce.Components.CameraFollow;
 import snow.pierce.Components.Character.CharacterSpriteAnimator;
 import snow.pierce.Components.Character.PlayerMovement;
-import snow.pierce.Level.LevelLoader;
+import snow.pierce.Components.GameObject;
+import snow.pierce.Components.SpriteRenderer;
+import snow.pierce.Components.Transform;
+import snow.pierce.Level.ChunkLoader;
+import snow.pierce.Level.Level;
 import snow.pierce.Renderer.Camera;
 import snow.pierce.Renderer.SpriteSheet;
 import snow.pierce.Util.AssetPool;
 import snow.pierce.Util.PlayerSpriteSet;
 import snow.pierce.Util.SpriteLayer;
 
+import java.util.ArrayList;
+
 public class LevelScene extends Scene {
+
+    private Level currentLevel;
+    private ChunkLoader chunkLoader;
+    private GameObject player;
 
     public LevelScene() {
 
@@ -28,17 +37,16 @@ public class LevelScene extends Scene {
         SpriteSheet sprites = AssetPool.getSpriteSheet(AssetPool.imagesPath + "character.png");
         SpriteSheet tiles = AssetPool.getSpriteSheet(AssetPool.imagesPath + "tiles.png");
 
-        LevelLoader.LoadLevel(AssetPool.levelPath + "newlevel.json", tiles);
+        currentLevel = new Level(AssetPool.levelPath + "newlevel.json");
 
-        GameObject player = new GameObject("Player", new Transform(new Vector2f(0, 0), new Vector2f(16, 16)), SpriteLayer.ENTITY_LAYER);
+        chunkLoader = new ChunkLoader(tiles, currentLevel, 1);
+
+        player = new GameObject("Player", new Transform(new Vector2f(0, 0), new Vector2f(16, 16)), SpriteLayer.ENTITY_LAYER);
         player.addComponent(new PlayerMovement());
         player.addComponent(new SpriteRenderer(sprites.GetSprite(0)));
         player.addComponent(new CameraFollow(new Vector2f(-camera.getSize().x / 2f, -camera.getSize().y / 2f)));
         player.addComponent(new CharacterSpriteAnimator(PlayerSpriteSet.GetPlayerSpriteMap(), 8, player.getComponent(SpriteRenderer.class), player.getComponent(PlayerMovement.class)));
         addGameObjectToScene(player);
-
-        AABB box1 = new AABB(new Vector2f(0, 0), new Vector2f(16, 16));
-        AABB box2 = new AABB(new Vector2f(2, 0), new Vector2f(16, 16));
     }
 
     private void LoadResources() {
@@ -55,10 +63,21 @@ public class LevelScene extends Scene {
 
     @Override
     public void Update() {
-        for (GameObject go : this.gameObjects) {
+        // Iterate over a copy to prevent concurrent modification issues
+        for (GameObject go : new ArrayList<>(this.gameObjects)) {
             go.Update();
         }
-
         this.renderer.render();
+
+        // Load chunks safely
+        chunkLoader.LoadChunksAround(0, currentLevel.getGridPosition(player.transform.position));
+    }
+
+    public ChunkLoader getChunkLoader() {
+        return chunkLoader;
+    }
+
+    public Level getCurrentLevel() {
+        return currentLevel;
     }
 }
