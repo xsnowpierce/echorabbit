@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="current chunk detection">
-      <changelist_data name="Snow Pierce" email="snowysnowypierce@gmail.com" automatic="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="current chunk detection" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +69,6 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -81,12 +76,12 @@
     &quot;assignee&quot;: &quot;xsnowpierce&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/xsnowpierce/lwjglgaming2.git&quot;,
-    &quot;accountId&quot;: &quot;8bc7fa68-57d8-4ffc-9973-47fa7703ba91&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/xsnowpierce/lwjglgaming2.git",
+    "accountId": "78f086b6-7532-42b3-ad33-02dcaac76714"
   }
-}</component>
+}]]></component>
   <component name="MaliciousPackageCheckinHandlerState">
     <option name="packageCheck" value="true" />
   </component>
@@ -101,42 +96,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Game.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build echorabbit.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build lwjglgaming2.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Load Gradle Dependencies.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.echorabbit [:snow.pierce.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.lwjglgaming2 [:snow.pierce.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.lwjglgaming2 [:snow.pierce.Util.Level.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.lwjglgaming2 [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.lwjglgaming2 [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.lwjglgaming2 [jar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.lwjglgaming2.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.lwjglgaming2.main.jar.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.lwjglgaming2_jar.jar.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/snow/IdeaProjects/echorabbit/leveleditor&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Game.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Gradle.Build echorabbit.executor": "Run",
+    "Gradle.Build lwjglgaming2.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.Load Gradle Dependencies.executor": "Run",
+    "Gradle.echorabbit [:snow.pierce.Main.main()].executor": "Run",
+    "Gradle.lwjglgaming2 [:snow.pierce.Main.main()].executor": "Run",
+    "Gradle.lwjglgaming2 [:snow.pierce.Util.Level.main()].executor": "Run",
+    "Gradle.lwjglgaming2 [build].executor": "Run",
+    "Gradle.lwjglgaming2 [clean].executor": "Run",
+    "Gradle.lwjglgaming2 [jar].executor": "Run",
+    "Gradle.lwjglgaming2.executor": "Run",
+    "JAR Application.lwjglgaming2.main.jar.executor": "Run",
+    "JAR Application.lwjglgaming2_jar.jar.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/snow/IdeaProjects/echorabbit",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/leveleditor" />
@@ -162,14 +157,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -319,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734393543451</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="current chunk detection">
+      <option name="closed" value="true" />
+      <created>1734395057649</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1734395057649</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
