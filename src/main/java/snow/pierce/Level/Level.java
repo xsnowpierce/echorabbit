@@ -1,13 +1,19 @@
 package snow.pierce.Level;
 
-import com.github.cliftonlabs.json_simple.*;
+import com.github.cliftonlabs.json_simple.JsonArray;
+import com.github.cliftonlabs.json_simple.JsonException;
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Level {
 
@@ -17,8 +23,8 @@ public class Level {
     String renderOrder;
     TileSet[] tileSets; // Array of TileSet data
     String type;
-    Vector2f gridSize;
-    Vector2f tileSize;
+    Vector2i gridSize;
+    Vector2i tileSize;
     static int chunkSize;
 
     public Level(String filePath) {
@@ -31,8 +37,8 @@ public class Level {
             this.infiniteGrid = (boolean) json.get("infinite");
             this.renderOrder = (String) json.get("renderorder");
             this.type = (String) json.get("type");
-            this.gridSize = new Vector2f(((BigDecimal) json.get("width")).intValue(), ((BigDecimal) json.get("height")).intValue());
-            this.tileSize = new Vector2f(((BigDecimal) json.get("tileheight")).intValue(), ((BigDecimal) json.get("tilewidth")).intValue());
+            this.gridSize = new Vector2i(((BigDecimal) json.get("width")).intValue(), ((BigDecimal) json.get("height")).intValue());
+            this.tileSize = new Vector2i(((BigDecimal) json.get("tileheight")).intValue(), ((BigDecimal) json.get("tilewidth")).intValue());
 
             // Parse tilesets
             JsonArray tileSetsJson = (JsonArray) json.get("tilesets");
@@ -96,22 +102,26 @@ public class Level {
         return layer;
     }
 
-    public Chunk getChunkFromPosition(int layerID, Vector2f position){
+    public Chunk getChunkFromPosition(Layer layer, Vector2i position) {
         // Calculate grid position
-        int gridX = (int) ((position.x + 0.5f) / tileSize.x) / chunkSize;
-        int gridY = (int) ((-position.y + 0.5f) / tileSize.y + 7.5f) / chunkSize;
-
-        //System.out.println(gridX + " " + gridY);
+        Vector2i gridPosition = getGridPosition(position);
 
         // Direct lookup in the map
-        return layers[layerID].chunkMap.getOrDefault(new Vector2i(gridX * chunkSize, gridY * chunkSize), null);
+        return layer.chunkMap.getOrDefault(new Vector2i(gridPosition.x * chunkSize, gridPosition.y * chunkSize), null);
     }
 
+    public Vector2i getGridPosition(Vector2i position) {
+        return new Vector2i(((int) ((position.x + 0.5f) / tileSize.x) / chunkSize) * chunkSize,
+                ((int) ((-position.y + 0.5f) / tileSize.y + 7.5f) / chunkSize) * chunkSize);
+    }
+
+    public Vector2i getGridPosition(Vector2f position) {
+        return getGridPosition(new Vector2i((int) position.x, (int) position.y));
+    }
 
     public int getCompressionLevel() {
         return compressionLevel;
     }
-
 
     public boolean isInfiniteGrid() {
         return infiniteGrid;
@@ -133,11 +143,11 @@ public class Level {
         return type;
     }
 
-    public Vector2f getGridSize() {
+    public Vector2i getGridSize() {
         return gridSize;
     }
 
-    public Vector2f getTileSize() {
+    public Vector2i getTileSize() {
         return tileSize;
     }
 }

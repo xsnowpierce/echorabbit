@@ -3,7 +3,6 @@ package snow.pierce.Renderer;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
-import snow.pierce.Components.GameObject;
 import snow.pierce.EventSystem.EventSystem;
 import snow.pierce.EventSystem.Events.Event;
 import snow.pierce.EventSystem.Observer;
@@ -20,12 +19,13 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window implements Observer {
 
-    private int width, height;
-    private String title;
+    private final int width;
+    private final int height;
+    private final String title;
     private long glfwWindow;
 
     public float r, g, b, a;
-    private boolean fadeToBlack = false;
+    private final boolean fadeToBlack = false;
 
     private static Window window = null;
 
@@ -57,7 +57,8 @@ public class Window implements Observer {
     }
 
     public static Scene getScene() {
-        return get().currentScene;
+        get();
+        return currentScene;
     }
 
     public void run() {
@@ -186,7 +187,7 @@ public class Window implements Observer {
     }
 
     @Override
-    public void onNotify(GameObject object, Event event) {
+    public void onNotify(Event event) {
         // todo this
     }
 }

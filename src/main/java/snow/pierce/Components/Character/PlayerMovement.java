@@ -1,19 +1,28 @@
 package snow.pierce.Components.Character;
 
 import org.joml.Vector2f;
+import org.joml.Vector2i;
 import snow.pierce.Components.Component;
-import snow.pierce.Level.Chunk;
-import snow.pierce.Level.LevelLoader;
+import snow.pierce.EventSystem.EventSystem;
+import snow.pierce.EventSystem.Events.PlayerEnterChunkEvent;
 import snow.pierce.Listener.KeyListener;
 import snow.pierce.Renderer.Window;
+import snow.pierce.Scene.LevelScene;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 public class PlayerMovement extends Component {
 
-    private float playerMoveSpeed = 1;
+    private final float playerMoveSpeed = 1;
     private Vector2f lastMovement = new Vector2f(0, -1);
     private boolean isMovementPressed = false;
+    private Vector2i currentChunkPosition;
+
+
+    @Override
+    public void Start() {
+        currentChunkPosition = ((LevelScene) Window.getScene()).getCurrentLevel().getGridPosition(gameObject.transform.position);
+    }
 
     @Override
     public void Update() {
@@ -39,9 +48,12 @@ public class PlayerMovement extends Component {
             isMovementPressed = true;
         }
 
-        Chunk currentChunk = LevelLoader.getCurrentLevel().getChunkFromPosition(0, gameObject.transform.position);
-        if(currentChunk != null){
-            System.out.println(currentChunk.getX() + " " + currentChunk.getY());
+        Vector2i newChunkPosition = ((LevelScene) Window.getScene()).getCurrentLevel().getGridPosition(gameObject.transform.position);
+
+        if (!currentChunkPosition.equals(newChunkPosition)) {
+            // player entered new chunk
+            PlayerEnterChunkEvent playerEnterChunkEvent = new PlayerEnterChunkEvent(newChunkPosition);
+            EventSystem.Notify(playerEnterChunkEvent);
         }
     }
 
