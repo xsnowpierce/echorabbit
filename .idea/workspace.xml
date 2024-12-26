@@ -10,33 +10,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="current chunk detection">
-      <change afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/EventSystem/Events/PlayerEnterChunkEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/ChunkLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Tiles/LoadedTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Collision/AABB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Collision/AABB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/Character/PlayerMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/Character/PlayerMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/EventSystem/EventSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/EventSystem/EventSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/ChunkLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/ChunkLoader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/LevelLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/LoadedChunk.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/LoadedChunk.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/TileType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/TileType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/Window.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Scene/LevelScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Scene/LevelScene.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Level.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LevelLoader.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LevelScene.class.uniqueId1" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LevelScene.class.uniqueId1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlayerMovement.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlayerMovement.class.uniqueId0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/images/tiles.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/images/tiles.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/levels/newlevel.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/levels/newlevel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ChunkLoader.class.uniqueId3" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ChunkLoader.class.uniqueId3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LevelScene.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlayerMovement.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Window.class.uniqueId2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leveleditor/level project/untitled.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/leveleditor/level project/untitled.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Collision/AABB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Collision/AABB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/Character/PlayerMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/Character/PlayerMovement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/EventSystem/EventSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/EventSystem/EventSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/EventSystem/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/EventSystem/Observer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/LevelLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/ChunkLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/ChunkLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/LoadedChunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/LoadedChunk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/TileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/TileType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/LevelScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/LevelScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/tiles.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/tiles.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/levels/newlevel.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/levels/newlevel.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,8 +119,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/xsnowpierce/lwjglgaming2.git&quot;,
-    &quot;accountId&quot;: &quot;78f086b6-7532-42b3-ad33-02dcaac76714&quot;
+    &quot;url&quot;: &quot;https://github.com/xsnowpierce/echorabbit.git&quot;,
+    &quot;accountId&quot;: &quot;a2c0d467-8668-4984-af8e-7943c8675ee7&quot;
   }
 }</component>
   <component name="MaliciousPackageCheckinHandlerState">
@@ -121,6 +133,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2poq4m3jy7MwoFTfwzhYBtf3WWa" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -147,6 +162,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/snow/IdeaProjects/echorabbit",
     "node.js.detected.package.eslint": "true",
@@ -158,7 +174,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -188,6 +204,14 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -207,6 +231,8 @@
       <workItem from="1734378734161" duration="145000" />
       <workItem from="1734378886651" duration="9414000" />
       <workItem from="1734393949786" duration="49000" />
+      <workItem from="1735232219452" duration="41000" />
+      <workItem from="1735232281407" duration="6743000" />
     </task>
     <task id="LOCAL-00001" summary="added font">
       <option name="closed" value="true" />

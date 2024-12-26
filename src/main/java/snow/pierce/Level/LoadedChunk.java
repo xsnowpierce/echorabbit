@@ -1,15 +1,15 @@
 package snow.pierce.Level;
 
-import snow.pierce.Components.GameObject;
+import snow.pierce.Level.Tiles.LoadedTile;
 
 import java.util.List;
 
 public class LoadedChunk {
 
-    private Chunk chunk;
-    private List<GameObject> tiles;
+    private final Chunk chunk;
+    private final List<LoadedTile> tiles;
 
-    public LoadedChunk(Chunk chunk, List<GameObject> tiles) {
+    public LoadedChunk(Chunk chunk, List<LoadedTile> tiles) {
         this.chunk = chunk;
         this.tiles = tiles;
     }
@@ -18,7 +18,7 @@ public class LoadedChunk {
         return chunk;
     }
 
-    public List<GameObject> getTiles() {
+    public List<LoadedTile> getTiles() {
         return tiles;
     }
 }

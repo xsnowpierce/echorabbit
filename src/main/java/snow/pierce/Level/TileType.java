@@ -2,11 +2,11 @@ package snow.pierce.Level;
 
 public enum TileType {
 
-    TILE("tile");
+    WALKABLE_TILE("walkable"), IMPASSABLE_TILE("impassable");
 
     private final String value;
 
-    private TileType(String value) {
+    TileType(String value) {
         this.value = value;
     }
 
@@ -21,5 +21,13 @@ public enum TileType {
             }
         }
         throw new IllegalArgumentException("No enum constant for value " + value);
+    }
+
+    public static TileType getTileTypeFromTileID(int tileID) {
+        return switch (tileID) {
+            case 1 -> WALKABLE_TILE; // light grass
+            case 2 -> IMPASSABLE_TILE; // dark grass
+            default -> WALKABLE_TILE;
+        };
     }
 }

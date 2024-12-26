@@ -2,6 +2,7 @@ package snow.pierce.Level;
 
 import org.joml.Vector2f;
 import org.joml.Vector2i;
+import snow.pierce.Collision.AABB;
 import snow.pierce.Components.GameObject;
 import snow.pierce.Components.SpriteRenderer;
 import snow.pierce.Components.Transform;
@@ -9,9 +10,9 @@ import snow.pierce.EventSystem.EventSystem;
 import snow.pierce.EventSystem.Events.Event;
 import snow.pierce.EventSystem.Events.PlayerEnterChunkEvent;
 import snow.pierce.EventSystem.Observer;
+import snow.pierce.Level.Tiles.LoadedTile;
 import snow.pierce.Renderer.SpriteSheet;
 import snow.pierce.Renderer.Window;
-import snow.pierce.Util.SpriteLayer;
 
 import java.util.*;
 
@@ -21,6 +22,7 @@ public class ChunkLoader implements Observer {
     private final Level currentLevel;
     private final SpriteSheet spriteSheet;
     private final int chunkRingDepth;
+    private List<AABB> currentAABBs;
 
     public ChunkLoader(SpriteSheet spriteSheet, Level level, int chunkRingDepth) {
         this.spriteSheet = spriteSheet;
@@ -28,6 +30,7 @@ public class ChunkLoader implements Observer {
         loadedChunks = new HashMap<>();
         this.chunkRingDepth = chunkRingDepth;
         EventSystem.addObserver(this);
+        currentAABBs = new ArrayList<>();
     }
 
     public void LoadChunk(int layer, Vector2i chunkToLoad) {
@@ -38,7 +41,7 @@ public class ChunkLoader implements Observer {
         //System.out.println("loading chunk at " + chunkToLoad.x + ", " + chunkToLoad.y);
 
         Chunk loadingChunk = currentLevel.getLayers()[layer].chunkMap.get(chunkToLoad);
-        List<GameObject> tiles = new ArrayList<>();
+        List<LoadedTile> tiles = new ArrayList<>();
 
         Vector2f startPosition = new Vector2f(loadingChunk.getX(), -loadingChunk.getY()); // negative Y for LWJGL shenanigans
         Vector2i tileSize = currentLevel.getTileSize();
@@ -51,7 +54,8 @@ public class ChunkLoader implements Observer {
             int flippedRow = loadingChunk.getHeight() - 1 - currentRow;
 
             if (tileValue - 1 >= 0) {
-                GameObject tile = new GameObject(
+
+                LoadedTile tile = new LoadedTile(
                         "tile",
                         new Transform(
                                 new Vector2f(
@@ -60,10 +64,10 @@ public class ChunkLoader implements Observer {
                                 ),
                                 new Vector2f(tileSize.x, tileSize.y)
                         ),
-                        SpriteLayer.BACKGROUND_LAYER
+                        TileType.getTileTypeFromTileID(tileValue - 1),
+                        spriteSheet.GetSprite(tileValue - 1)
                 );
-
-                tile.addComponent(new SpriteRenderer(spriteSheet.GetSprite(tileValue - 1)));
+                currentAABBs.add(tile.getBoundingBox());
                 Window.getScene().addGameObjectToScene(tile);
                 tiles.add(tile);
             }
@@ -100,6 +104,8 @@ public class ChunkLoader implements Observer {
             Window.getScene().removeGameObjectFromScene(tile);
             tile.Destroy();
         }
+
+        currentAABBs = new ArrayList<>();
     }
 
     // Function to get a list of chunk positions to render
@@ -145,5 +151,9 @@ public class ChunkLoader implements Observer {
                 //System.out.println("unloaded chunk at " + chunkPos.x + ", " + chunkPos.y);
             }
         }
+    }
+
+    public List<AABB> getAABBs() {
+        return currentAABBs;
     }
 }
