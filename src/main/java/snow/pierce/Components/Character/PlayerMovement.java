@@ -2,8 +2,10 @@ package snow.pierce.Components.Character;
 
 import org.joml.Vector2f;
 import org.joml.Vector2i;
+import org.joml.Vector3f;
 import snow.pierce.Collision.AABB;
 import snow.pierce.Components.Component;
+import snow.pierce.Debug.DebugDraw;
 import snow.pierce.EventSystem.EventSystem;
 import snow.pierce.EventSystem.Events.PlayerEnterChunkEvent;
 import snow.pierce.Listener.KeyListener;
@@ -60,10 +62,18 @@ public class PlayerMovement extends Component {
         boolean colliding = false;
         for (AABB aabb : levelScene.getChunkLoader().getAABBs()) {
             if (aabb == null) continue;
-            if (boundingBox.getCollision(aabb) != null) {
+            if (boundingBox.getCollision(aabb).isIntersecting) {
                 colliding = true;
-                System.out.println("Colliding!");
-                break;
+
+                DebugDraw.addBox2D(aabb.getCenter(), new Vector2f(aabb.getHalfExtent().x * 2, aabb.getHalfExtent().y * 2), 0, new Vector3f(1, 0, 0), 1);
+                DebugDraw.addBox2D(boundingBox.getCenter(), new Vector2f(boundingBox.getHalfExtent().x * 2, boundingBox.getHalfExtent().y * 2), 0, new Vector3f(1, 0, 0), 1);
+
+                System.out.println("Colliding! player is colliding with " + Math.floorDiv((int) aabb.gameObject.transform.position.x, levelScene.getCurrentLevel().getTileSize().x) + ", " +
+                        Math.floorDiv((int) aabb.gameObject.transform.position.y, levelScene.getCurrentLevel().getTileSize().y)
+                        + ", player is at " +
+                        Math.floorDiv((int) boundingBox.getCenter().x, levelScene.getCurrentLevel().getTileSize().x) + ", " +
+                        Math.floorDiv((int) boundingBox.getCenter().y, levelScene.getCurrentLevel().getTileSize().y));
+
             }
         }
 
@@ -78,6 +88,7 @@ public class PlayerMovement extends Component {
             }
         }
     }
+
 
     public Vector2f getLastMovement() {
         return lastMovement;

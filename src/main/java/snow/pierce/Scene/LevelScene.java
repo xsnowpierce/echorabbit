@@ -7,6 +7,7 @@ import snow.pierce.Components.Character.PlayerMovement;
 import snow.pierce.Components.GameObject;
 import snow.pierce.Components.SpriteRenderer;
 import snow.pierce.Components.Transform;
+import snow.pierce.Debug.DebugDraw;
 import snow.pierce.Level.ChunkLoader;
 import snow.pierce.Level.Level;
 import snow.pierce.Renderer.Camera;
@@ -31,6 +32,7 @@ public class LevelScene extends Scene {
     public void init() {
 
         LoadResources();
+        DebugDraw.start();
 
         this.camera = new Camera(new Vector2f(0, 0));
 
@@ -63,7 +65,6 @@ public class LevelScene extends Scene {
 
     @Override
     public void Update() {
-        // Iterate over a copy to prevent concurrent modification issues
         for (GameObject go : new ArrayList<>(this.gameObjects)) {
             go.Update();
         }
@@ -71,6 +72,7 @@ public class LevelScene extends Scene {
 
         // Load chunks safely
         chunkLoader.LoadChunksAround(0, currentLevel.getGridPosition(player.transform.position));
+        DebugDraw.draw();
     }
 
     public ChunkLoader getChunkLoader() {
