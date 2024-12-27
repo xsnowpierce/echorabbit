@@ -48,6 +48,7 @@ public class ChunkLoader implements Observer {
 
         int currentRow = 0;
         int currentCol = 0;
+        List<AABB> currentChunkAABBs = new ArrayList<>();
         for (int k = 0; k < loadingChunk.tileArray.length; k++) {
 
             int tileValue = loadingChunk.tileArray[k];
@@ -67,7 +68,7 @@ public class ChunkLoader implements Observer {
                         TileType.getTileTypeFromTileID(tileValue - 1),
                         spriteSheet.GetSprite(tileValue - 1)
                 );
-                currentAABBs.add(tile.getBoundingBox());
+                currentChunkAABBs.add(tile.getBoundingBox());
                 Window.getScene().addGameObjectToScene(tile);
                 tiles.add(tile);
             }
@@ -80,7 +81,7 @@ public class ChunkLoader implements Observer {
             }
         }
 
-        loadedChunks.put(chunkToLoad, new LoadedChunk(loadingChunk, tiles));
+        loadedChunks.put(chunkToLoad, new LoadedChunk(loadingChunk, tiles, currentChunkAABBs));
     }
 
     public void LoadChunksAround(int layer, Vector2i centreChunk) {
@@ -154,6 +155,10 @@ public class ChunkLoader implements Observer {
     }
 
     public List<AABB> getAABBs() {
-        return currentAABBs;
+        List<AABB> aabbs = new ArrayList<>();
+        for (LoadedChunk loadedChunk : loadedChunks.values()) {
+            aabbs.addAll(loadedChunk.getCurrentAABBs());
+        }
+        return aabbs;
     }
 }
