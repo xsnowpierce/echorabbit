@@ -84,7 +84,8 @@ public class PlayerMovement extends Component {
     }
 
     private boolean isCollidingWithAnyAABB(LevelScene levelScene, AABB boundingBox) {
-        System.out.println(levelScene.getChunkLoader().getAABBs().size());
+        //System.out.println(levelScene.getChunkLoader().getAABBs().size());
+        // todo make this only check nearby ones instead of all the ones loaded
         for (AABB aabb : levelScene.getChunkLoader().getAABBs()) {
             if (aabb != null && boundingBox.getCollision(aabb).isIntersecting) {
                 return true; // Exit early on first collision

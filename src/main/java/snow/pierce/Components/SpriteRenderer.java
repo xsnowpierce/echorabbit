@@ -4,11 +4,11 @@ import org.joml.Vector2f;
 import org.joml.Vector4f;
 import snow.pierce.Renderer.Sprite;
 import snow.pierce.Renderer.Texture;
-import snow.pierce.Util.SpriteNormal;
+import snow.pierce.Util.Colour;
 
 public class SpriteRenderer extends Component {
 
-    private Vector4f colour;
+    private final Vector4f colour;
     private Sprite sprite;
 
     private Transform lastTransform;
@@ -37,6 +37,16 @@ public class SpriteRenderer extends Component {
     public SpriteRenderer(Vector4f color) {
         this.colour = color;
         this.sprite = new Sprite(null);
+    }
+
+    public SpriteRenderer(Colour color) {
+        this.colour = color.getVector4f();
+        this.sprite = new Sprite(null);
+    }
+
+    public SpriteRenderer(Sprite sprite, Vector4f color) {
+        this.colour = color;
+        this.sprite = sprite;
     }
 
     public Vector4f getColour() {

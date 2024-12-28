@@ -1,18 +1,16 @@
 package snow.pierce.Scene;
 
 import org.joml.Vector2f;
-import snow.pierce.Components.CameraFollow;
+import snow.pierce.Components.*;
 import snow.pierce.Components.Character.CharacterSpriteAnimator;
 import snow.pierce.Components.Character.PlayerMovement;
-import snow.pierce.Components.GameObject;
-import snow.pierce.Components.SpriteRenderer;
-import snow.pierce.Components.Transform;
-import snow.pierce.Debug.DebugDraw;
 import snow.pierce.Level.ChunkLoader;
 import snow.pierce.Level.Level;
 import snow.pierce.Renderer.Camera;
 import snow.pierce.Renderer.SpriteSheet;
+import snow.pierce.UI.UIObject;
 import snow.pierce.Util.AssetPool;
+import snow.pierce.Util.Colour;
 import snow.pierce.Util.PlayerSpriteSet;
 import snow.pierce.Util.SpriteLayer;
 
@@ -32,7 +30,7 @@ public class LevelScene extends Scene {
     public void init() {
 
         LoadResources();
-        DebugDraw.start();
+        //DebugDraw.start();
 
         this.camera = new Camera(new Vector2f(0, 0));
 
@@ -49,6 +47,13 @@ public class LevelScene extends Scene {
         player.addComponent(new CameraFollow(new Vector2f(-camera.getSize().x / 2f, -camera.getSize().y / 2f)));
         player.addComponent(new CharacterSpriteAnimator(PlayerSpriteSet.GetPlayerSpriteMap(), 8, player.getComponent(SpriteRenderer.class), player.getComponent(PlayerMovement.class)));
         addGameObjectToScene(player);
+
+        //UIObject image = new UIObject("text background", new Transform(new Vector2f(0, 0), new Vector2f(Window.getWidth(), 20)));
+        //image.addComponent(new SpriteRenderer(Colour.WHITE));
+        //addUIObjectToScene(image);
+
+        TextObject text = new TextObject("Text", new Vector2f(5, 5), Colour.BLACK);
+        addUIObjectToScene(text);
     }
 
     private void LoadResources() {
@@ -65,6 +70,7 @@ public class LevelScene extends Scene {
 
     @Override
     public void Update() {
+
         for (GameObject go : new ArrayList<>(this.gameObjects)) {
             go.Update();
         }
@@ -72,7 +78,11 @@ public class LevelScene extends Scene {
 
         // Load chunks safely
         chunkLoader.LoadChunksAround(0, currentLevel.getGridPosition(player.transform.position));
-        DebugDraw.draw();
+        //DebugDraw.draw();
+
+        for (UIObject ui : this.uiObjects) {
+            ui.Update();
+        }
     }
 
     public ChunkLoader getChunkLoader() {
