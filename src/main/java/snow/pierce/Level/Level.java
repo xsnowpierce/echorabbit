@@ -7,9 +7,9 @@ import com.github.cliftonlabs.json_simple.Jsoner;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +29,8 @@ public class Level {
 
     public Level(String filePath) {
 
-        try (FileReader reader = new FileReader(filePath)) {
+        try {
+            String reader = getLevelFromResources(filePath);
             JsonObject json = (JsonObject) Jsoner.deserialize(reader);
 
             // Deserialize the JSON into a Level object
@@ -59,10 +60,25 @@ public class Level {
 
             System.out.println("layer size " + this.layers.length);
 
-        } catch (IOException | JsonException e) {
-            e.printStackTrace();
-            assert false : "Error loading file.";
+        } catch (JsonException e) {
+            throw new RuntimeException("Failed to parse level file: '" + filePath + "'.", e);
         }
+    }
+
+    private String getLevelFromResources(String filePath) {
+
+        try (InputStream stream = Level.class.getResourceAsStream(filePath)) {
+            if (stream == null) {
+                throw new RuntimeException("Level file not found: '" + filePath + "'.");
+            }
+
+            byte[] bytes = stream.readAllBytes();
+            return new String(bytes, StandardCharsets.UTF_8);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Error loading level: '" + filePath + "'.", e);
+        }
+
     }
 
     private static Layer getLayer(JsonObject layerObj) {

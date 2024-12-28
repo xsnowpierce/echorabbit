@@ -2,21 +2,28 @@ package snow.pierce.Renderer;
 
 import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
+import org.lwjgl.stb.STBImage;
+import org.lwjgl.system.MemoryUtil;
+import snow.pierce.Util.AssetPool;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.stb.STBImage.*;
+import static org.lwjgl.stb.STBImage.stbi_image_free;
+import static org.lwjgl.stb.STBImage.stbi_set_flip_vertically_on_load;
 
 public class Texture {
-    private String filepath;
-    private int texID;
-    private Vector2f imageSize = new Vector2f();
+    private final String filepath;
+    private final int texID;
+    private final Vector2f imageSize = new Vector2f();
 
     public Texture(String filepath) {
         this.filepath = filepath;
 
+        System.out.println("Loading texture: " + filepath);
 
         // Generate texture on GPU
         texID = glGenTextures();
@@ -34,8 +41,7 @@ public class Texture {
         IntBuffer width = BufferUtils.createIntBuffer(1);
         IntBuffer height = BufferUtils.createIntBuffer(1);
         IntBuffer channels = BufferUtils.createIntBuffer(1);
-        stbi_set_flip_vertically_on_load(true);
-        ByteBuffer image = stbi_load(filepath, width, height, channels, 0);
+        ByteBuffer image = loadImage(filepath, width, height, channels);
 
         if (image != null) {
             imageSize.x = width.get(0);
@@ -47,13 +53,34 @@ public class Texture {
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width.get(0), height.get(0),
                         0, GL_RGBA, GL_UNSIGNED_BYTE, image);
             } else {
-                assert false : "Error: (Texture) Unknown number of channesl '" + channels.get(0) + "'";
+                assert false : "Error: (Texture) Unknown number of channels '" + channels.get(0) + "'";
             }
         } else {
             assert false : "Error: (Texture) Could not load image '" + filepath + "'";
         }
 
         stbi_image_free(image);
+    }
+
+    private static ByteBuffer loadImage(String filepath, IntBuffer width, IntBuffer height, IntBuffer channels) {
+        try (InputStream is = AssetPool.class.getResourceAsStream(filepath)) {
+
+            if (is == null) {
+                throw new RuntimeException("Error: could not find resource '" + filepath + "'.");
+            }
+
+            byte[] buffer = is.readAllBytes();
+            ByteBuffer byteBuffer = MemoryUtil.memAlloc(buffer.length);
+            byteBuffer.put(buffer).flip();  // Ensure buffer is flipped after putting data
+
+            // Optionally flip the image vertically (depending on the format)
+            stbi_set_flip_vertically_on_load(true);
+
+            return STBImage.stbi_load_from_memory(byteBuffer, width, height, channels, 0);
+
+        } catch (IOException ioException) {
+            throw new RuntimeException("Error loading resource: " + filepath, ioException);
+        }
     }
 
     public void bind() {

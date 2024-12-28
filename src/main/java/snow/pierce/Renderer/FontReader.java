@@ -7,7 +7,9 @@ public class FontReader {
     private static SpriteSheet fontSheet;
 
     public static void CreateFont(){
-        fontSheet = new SpriteSheet(new Texture(AssetPool.imagesPath + "font.png"), 6, 8, 68, 0);
+        String url = AssetPool.getImagesPath() + "font.png";
+        fontSheet = new SpriteSheet(new Texture(url), 6, 8, 68, 0);
+        AssetPool.addSpriteSheet(url, fontSheet);
     }
 
     public static Sprite GetCharacter(char Character) {

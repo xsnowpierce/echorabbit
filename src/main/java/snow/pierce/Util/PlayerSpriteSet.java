@@ -8,7 +8,7 @@ public class PlayerSpriteSet {
 
     public static CharacterSpriteMap GetPlayerSpriteMap() {
 
-        SpriteSheet spriteSheet = AssetPool.getSpriteSheet(AssetPool.imagesPath + "character.png");
+        SpriteSheet spriteSheet = AssetPool.getSpriteSheet(AssetPool.getImagesPath() + "character.png");
 
         Sprite[] idleUp = new Sprite[]{
                 spriteSheet.GetSprite(12)

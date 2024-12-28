@@ -10,12 +10,9 @@ import java.util.Map;
 
 public class AssetPool {
 
-    private static Map<String, Shader> shaders = new HashMap<>();
-    private static Map<String, Texture> textures = new HashMap<>();
-    private static Map<String, SpriteSheet> spriteSheetMap = new HashMap<>();
-    public static String shaderPath = "src/main/resources/shaders/";
-    public static String imagesPath = "src/main/resources/images/";
-    public static String levelPath = "src/main/resources/levels/";
+    private static final Map<String, Shader> shaders = new HashMap<>();
+    private static final Map<String, Texture> textures = new HashMap<>();
+    private static final Map<String, SpriteSheet> spriteSheetMap = new HashMap<>();
 
     public static Shader getShader(String resourceName) {
         File file = new File(resourceName);
@@ -49,10 +46,20 @@ public class AssetPool {
 
     public static SpriteSheet getSpriteSheet(String resourceName){
         File file = new File(resourceName);
-        if(!AssetPool.spriteSheetMap.containsKey(file.getAbsolutePath())){
-            assert false : "Error: tried to access spritesheet '" + resourceName + "' and it has not been yet created.";
-        }
+        assert AssetPool.spriteSheetMap.containsKey(file.getAbsolutePath()) : "Error: tried to access spritesheet '" + resourceName + "' and it has not been yet created.";
         return AssetPool.spriteSheetMap.getOrDefault(file.getAbsolutePath(), null);
+    }
+
+    public static String getImagesPath() {
+        return "/images/";
+    }
+
+    public static String getLevelPath() {
+        return "/levels/";
+    }
+
+    public static String getShaderPath() {
+        return "/shaders/";
     }
 
 }

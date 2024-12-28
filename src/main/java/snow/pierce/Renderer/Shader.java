@@ -4,13 +4,12 @@ import org.joml.*;
 import org.lwjgl.BufferUtils;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.FloatBuffer;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.charset.StandardCharsets;
 
 import static org.lwjgl.opengl.GL11.GL_FALSE;
 import static org.lwjgl.opengl.GL20.*;
-import static org.lwjgl.opengl.GL20.glGetShaderInfoLog;
 
 public class Shader {
 
@@ -19,12 +18,12 @@ public class Shader {
 
     private String vertexSource;
     private String fragmentSource;
-    private String filepath;
+    private final String filepath;
 
     public Shader(String filepath) {
         this.filepath = filepath;
         try {
-            String source = new String(Files.readAllBytes(Paths.get(filepath)));
+            String source = loadShaderFromResources(filepath);
             String[] splitString = source.split("(#type)( )+([a-zA-Z]+)");
 
             // Find the first pattern after #type 'pattern'
@@ -55,6 +54,18 @@ public class Shader {
         } catch(IOException e) {
             e.printStackTrace();
             assert false : "Error: Could not open file for shader: '" + filepath + "'";
+        }
+    }
+
+    private String loadShaderFromResources(String filepath) {
+        try (InputStream is = Shader.class.getResourceAsStream(filepath)) {
+            if (is == null) {
+                throw new IOException("Shader not found: '" + filepath + "'");
+            }
+            byte[] buffer = is.readAllBytes();
+            return new String(buffer, StandardCharsets.UTF_8);
+        } catch (Exception e) {
+            throw new RuntimeException("Error loading shader: '" + filepath + "'", e);
         }
     }
 

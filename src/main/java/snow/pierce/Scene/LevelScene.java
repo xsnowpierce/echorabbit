@@ -34,10 +34,10 @@ public class LevelScene extends Scene {
 
         this.camera = new Camera(new Vector2f(0, 0));
 
-        SpriteSheet sprites = AssetPool.getSpriteSheet(AssetPool.imagesPath + "character.png");
-        SpriteSheet tiles = AssetPool.getSpriteSheet(AssetPool.imagesPath + "tiles.png");
+        SpriteSheet sprites = AssetPool.getSpriteSheet(AssetPool.getImagesPath() + "character.png");
+        SpriteSheet tiles = AssetPool.getSpriteSheet(AssetPool.getImagesPath() + "tiles.png");
 
-        currentLevel = new Level(AssetPool.levelPath + "newlevel.json");
+        currentLevel = new Level(AssetPool.getLevelPath() + "newlevel.json");
 
         chunkLoader = new ChunkLoader(tiles, currentLevel, 1);
 
@@ -57,14 +57,14 @@ public class LevelScene extends Scene {
     }
 
     private void LoadResources() {
-        AssetPool.getShader(AssetPool.shaderPath + "default.glsl");
+        AssetPool.getShader(AssetPool.getShaderPath() + "default.glsl");
 
-        AssetPool.addSpriteSheet(AssetPool.imagesPath + "character.png",
-                new SpriteSheet(AssetPool.getTexture(AssetPool.imagesPath + "character.png"),
+        AssetPool.addSpriteSheet(AssetPool.getImagesPath() + "character.png",
+                new SpriteSheet(AssetPool.getTexture(AssetPool.getImagesPath() + "character.png"),
                         16, 16, 16, 0));
 
-        AssetPool.addSpriteSheet(AssetPool.imagesPath + "tiles.png",
-                new SpriteSheet(AssetPool.getTexture(AssetPool.imagesPath + "tiles.png"),
+        AssetPool.addSpriteSheet(AssetPool.getImagesPath() + "tiles.png",
+                new SpriteSheet(AssetPool.getTexture(AssetPool.getImagesPath() + "tiles.png"),
                         16, 16, 3, 0));
     }
 
