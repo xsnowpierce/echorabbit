@@ -10,6 +10,7 @@ project.ext.jomlVersion = "1.10.7"
 project.ext.lwjglNatives = "natives-windows"
 project.ext.imguiVersion = "1.87.0"
 
+
 allprojects {
     repositories {
         flatDir{
@@ -27,6 +28,7 @@ jar {
         attributes(
                 'Main-Class': 'snow.pierce.Main' // Replace with your main class name
         )
+        archiveFileName.set("echorabbit.jar")
     }
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
@@ -35,6 +37,7 @@ jar {
         into('resources')
     }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    destinationDirectory = file("$rootDir/jar")
 }
 
 dependencies {

@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="some ui stuff">
+    <list default="true" id="aca0856a-03cf-43dc-b404-5f42a0879f4b" name="Changes" comment="built jar">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/echorabbit.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
@@ -20,36 +23,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/Character/PlayerMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/Character/PlayerMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/Component.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/Component.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/SpriteRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/SpriteRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/TextObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Components/TextObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Debug/DebugDraw.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Debug/DebugDraw.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Level/Level.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/FontReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/FontReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/RenderBatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/RenderBatch.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/Shader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/Shader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/Texture.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Renderer/Texture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Scene/LevelScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Scene/LevelScene.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/UI/UIObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/UI/UIObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Util/AssetPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Util/AssetPool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Util/PlayerSpriteSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/snow/pierce/Util/PlayerSpriteSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CharacterSpriteAnimator$Movement.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CharacterSpriteAnimator.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LevelScene.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlayerMovement.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/echorabbit-0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/echorabbit-0.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Components/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Debug/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Debug/DebugDraw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Level/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/FontReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/FontReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/RenderBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Shader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Renderer/Texture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/LevelScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Scene/LevelScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Util/AssetPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Util/AssetPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/snow/pierce/Util/PlayerSpriteSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snow/pierce/Util/PlayerSpriteSet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +168,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -209,7 +191,7 @@
       <recent name="$PROJECT_DIR$/resources/images" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.echorabbit [jar]">
+  <component name="RunManager" selected="Gradle.echorabbit [build]">
     <configuration name="Game" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -287,8 +269,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.echorabbit [jar]" />
         <item itemvalue="Gradle.echorabbit [build]" />
+        <item itemvalue="Gradle.echorabbit [jar]" />
         <item itemvalue="Gradle.echorabbit [clean]" />
       </list>
     </recent_temporary>
@@ -323,7 +305,9 @@
       <workItem from="1735232219452" duration="41000" />
       <workItem from="1735232281407" duration="17633000" />
       <workItem from="1735408620727" duration="2273000" />
-      <workItem from="1735411190627" duration="3347000" />
+      <workItem from="1735411190627" duration="4027000" />
+      <workItem from="1735416229906" duration="917000" />
+      <workItem from="1735417237704" duration="4828000" />
     </task>
     <task id="LOCAL-00001" summary="added font">
       <option name="closed" value="true" />
@@ -501,7 +485,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735408808431</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="built jar">
+      <option name="closed" value="true" />
+      <created>1735414825579</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1735414825579</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +545,8 @@
     <MESSAGE value="collision and debug lines" />
     <MESSAGE value="first collision release" />
     <MESSAGE value="some ui stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="some ui stuff" />
+    <MESSAGE value="built jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="built jar" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
