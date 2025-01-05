@@ -16,4 +16,14 @@ public class UIObject extends GameObject {
         super(name, transform, SpriteLayer.UI_LAYER);
         this.addComponent(new FollowCamera(new Vector2f(transform.position.x, transform.position.y)));
     }
+
+    public UIObject(String name, Transform transform, SpriteLayer layer) {
+        super(name, transform, layer);
+        this.addComponent(new FollowCamera(new Vector2f(transform.position.x, transform.position.y)));
+    }
+
+    public UIObject(String name, Transform transform, int layer) {
+        super(name, transform, layer);
+        this.addComponent(new FollowCamera(new Vector2f(transform.position.x, transform.position.y)));
+    }
 }

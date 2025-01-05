@@ -3,12 +3,16 @@ package snow.pierce.Components.Character;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import snow.pierce.Collision.AABB;
+import snow.pierce.Collision.TriggerBox;
 import snow.pierce.Components.Component;
 import snow.pierce.EventSystem.EventSystem;
 import snow.pierce.EventSystem.Events.PlayerEnterChunkEvent;
 import snow.pierce.Listener.KeyListener;
 import snow.pierce.Renderer.Window;
 import snow.pierce.Scene.LevelScene;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -84,11 +88,20 @@ public class PlayerMovement extends Component {
     }
 
     private boolean isCollidingWithAnyAABB(LevelScene levelScene, AABB boundingBox) {
-        //System.out.println(levelScene.getChunkLoader().getAABBs().size());
+
         // todo make this only check nearby ones instead of all the ones loaded
-        for (AABB aabb : levelScene.getChunkLoader().getAABBs()) {
+
+        List<AABB> aabbList = new ArrayList<>(levelScene.getChunkLoader().getAABBs());
+        aabbList.addAll(levelScene.getAabbList());
+
+        for (AABB aabb : aabbList) {
             if (aabb != null && boundingBox.getCollision(aabb).isIntersecting) {
-                return true; // Exit early on first collision
+                if (aabb.getClass() == TriggerBox.class) {
+                    TriggerBox trigger = (TriggerBox) aabb;
+                    trigger.playerTouchingTrigger(boundingBox);
+                    continue;
+                }
+                return true;
             }
         }
         return false;
@@ -109,5 +122,9 @@ public class PlayerMovement extends Component {
 
     public boolean IsMovementPressed() {
         return isMovementPressed;
+    }
+
+    public AABB getBoundingBox() {
+        return boundingBox;
     }
 }

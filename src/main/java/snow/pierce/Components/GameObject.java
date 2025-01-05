@@ -7,10 +7,10 @@ import java.util.List;
 
 public class GameObject {
 
-    private String name;
-    private List<Component> components;
+    private final String name;
+    private final List<Component> components;
     public Transform transform;
-    private int zIndex;
+    private final int zIndex;
     private boolean isDead = false;
 
     public GameObject(String name) {
@@ -25,6 +25,13 @@ public class GameObject {
         this.components = new ArrayList<>();
         this.transform = transform;
         this.zIndex = layer.getValue();
+    }
+
+    public GameObject(String name, Transform transform, int layer) {
+        this.name = name;
+        this.components = new ArrayList<>();
+        this.transform = transform;
+        this.zIndex = layer;
     }
 
     public <T extends Component> T getComponent(Class<T> componentClass) {

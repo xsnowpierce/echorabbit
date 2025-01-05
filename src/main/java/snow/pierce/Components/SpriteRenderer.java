@@ -4,7 +4,6 @@ import org.joml.Vector2f;
 import org.joml.Vector4f;
 import snow.pierce.Renderer.Sprite;
 import snow.pierce.Renderer.Texture;
-import snow.pierce.Util.Colour;
 
 public class SpriteRenderer extends Component {
 
@@ -39,8 +38,13 @@ public class SpriteRenderer extends Component {
         this.sprite = new Sprite(null);
     }
 
-    public SpriteRenderer(Colour color) {
-        this.colour = color.getVector4f();
+    public SpriteRenderer(java.awt.Color color) {
+        Vector4f chosenColour = new Vector4f();
+        chosenColour.x = color.getRed() / 255.0f;
+        chosenColour.y = color.getGreen() / 255.0f;
+        chosenColour.z = color.getBlue() / 255.0f;
+        chosenColour.w = color.getAlpha() / 255.0f;
+        this.colour = chosenColour;
         this.sprite = new Sprite(null);
     }
 

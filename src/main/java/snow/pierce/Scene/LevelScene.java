@@ -1,6 +1,9 @@
 package snow.pierce.Scene;
 
 import org.joml.Vector2f;
+import snow.pierce.Collision.AABB;
+import snow.pierce.Collision.TriggerAABB;
+import snow.pierce.Collision.TriggerBox;
 import snow.pierce.Components.*;
 import snow.pierce.Components.Character.CharacterSpriteAnimator;
 import snow.pierce.Components.Character.PlayerMovement;
@@ -14,13 +17,16 @@ import snow.pierce.Util.Colour;
 import snow.pierce.Util.PlayerSpriteSet;
 import snow.pierce.Util.SpriteLayer;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class LevelScene extends Scene {
 
     private Level currentLevel;
     private ChunkLoader chunkLoader;
     private GameObject player;
+    private final List<AABB> aabbList = new ArrayList<>();
 
     public LevelScene() {
 
@@ -48,12 +54,37 @@ public class LevelScene extends Scene {
         player.addComponent(new CharacterSpriteAnimator(PlayerSpriteSet.GetPlayerSpriteMap(), 8, player.getComponent(SpriteRenderer.class), player.getComponent(PlayerMovement.class)));
         addGameObjectToScene(player);
 
-        //UIObject image = new UIObject("text background", new Transform(new Vector2f(0, 0), new Vector2f(Window.getWidth(), 20)));
-        //image.addComponent(new SpriteRenderer(Colour.WHITE));
-        //addUIObjectToScene(image);
 
         TextObject text = new TextObject("Text", new Vector2f(5, 5), Colour.BLACK);
-        addUIObjectToScene(text);
+
+        //UIObject image = new UIObject("text background", new Transform(new Vector2f(0, 0), new Vector2f(Window.getWidth(), 20)), SpriteLayer.UI_LAYER.getValue() - 1);
+        //image.addComponent(new SpriteRenderer(Colour.WHITE));
+        //addGameObjectToScene(image);
+
+        GameObject collTest = new GameObject("colltest", new Transform(new Vector2f(16, 16), new Vector2f(16, 16)), SpriteLayer.ENTITY_LAYER);
+        collTest.addComponent(new SpriteRenderer(Color.MAGENTA));
+        collTest.addComponent(new TriggerBox(new Vector2f(16, 16), new Vector2f(8, 8)));
+        addGameObjectToScene(collTest);
+    }
+
+    public List<AABB> getAabbList() {
+        return aabbList;
+    }
+
+    @Override
+    public void addGameObjectToScene(GameObject gameObject) {
+        super.addGameObjectToScene(gameObject);
+        if (gameObject.getComponent(TriggerAABB.class) != null) {
+            aabbList.add(gameObject.getComponent(TriggerAABB.class));
+        }
+    }
+
+    @Override
+    public void removeGameObjectFromScene(GameObject gameObject) {
+        super.removeGameObjectFromScene(gameObject);
+        if (gameObject.getComponent(TriggerAABB.class) != null) {
+            aabbList.remove(gameObject.getComponent(TriggerAABB.class));
+        }
     }
 
     private void LoadResources() {

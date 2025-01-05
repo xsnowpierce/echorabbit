@@ -39,4 +39,5 @@ public class AABB extends Component {
     public Vector2f getHalfExtent() {
         return half_extent;
     }
+
 }
