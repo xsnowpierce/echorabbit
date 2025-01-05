@@ -3,7 +3,6 @@ package snow.pierce.Components.Character;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import snow.pierce.Collision.AABB;
-import snow.pierce.Collision.TriggerBox;
 import snow.pierce.Components.Component;
 import snow.pierce.EventSystem.EventSystem;
 import snow.pierce.EventSystem.Events.PlayerEnterChunkEvent;
@@ -96,9 +95,8 @@ public class PlayerMovement extends Component {
 
         for (AABB aabb : aabbList) {
             if (aabb != null && boundingBox.getCollision(aabb).isIntersecting) {
-                if (aabb.getClass() == TriggerBox.class) {
-                    TriggerBox trigger = (TriggerBox) aabb;
-                    trigger.playerTouchingTrigger(boundingBox);
+                if (aabb.IsTrigger()) {
+                    aabb.playerTouchingTrigger(boundingBox);
                     continue;
                 }
                 return true;

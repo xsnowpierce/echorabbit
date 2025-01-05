@@ -2,8 +2,7 @@ package snow.pierce.Scene;
 
 import org.joml.Vector2f;
 import snow.pierce.Collision.AABB;
-import snow.pierce.Collision.TriggerAABB;
-import snow.pierce.Collision.TriggerBox;
+import snow.pierce.Collision.CollTest;
 import snow.pierce.Components.*;
 import snow.pierce.Components.Character.CharacterSpriteAnimator;
 import snow.pierce.Components.Character.PlayerMovement;
@@ -61,9 +60,9 @@ public class LevelScene extends Scene {
         //image.addComponent(new SpriteRenderer(Colour.WHITE));
         //addGameObjectToScene(image);
 
-        GameObject collTest = new GameObject("colltest", new Transform(new Vector2f(16, 16), new Vector2f(16, 16)), SpriteLayer.ENTITY_LAYER);
+        GameObject collTest = new GameObject("colltest", new Transform(new Vector2f(16, 16), new Vector2f(16, 16)), SpriteLayer.ITEM_LAYER);
         collTest.addComponent(new SpriteRenderer(Color.MAGENTA));
-        collTest.addComponent(new TriggerBox(new Vector2f(16, 16), new Vector2f(8, 8)));
+        collTest.addComponent(new CollTest(collTest.transform, true));
         addGameObjectToScene(collTest);
     }
 
@@ -74,16 +73,16 @@ public class LevelScene extends Scene {
     @Override
     public void addGameObjectToScene(GameObject gameObject) {
         super.addGameObjectToScene(gameObject);
-        if (gameObject.getComponent(TriggerAABB.class) != null) {
-            aabbList.add(gameObject.getComponent(TriggerAABB.class));
+        if (gameObject.getComponent(AABB.class) != null) {
+            aabbList.add(gameObject.getComponent(AABB.class));
         }
     }
 
     @Override
     public void removeGameObjectFromScene(GameObject gameObject) {
         super.removeGameObjectFromScene(gameObject);
-        if (gameObject.getComponent(TriggerAABB.class) != null) {
-            aabbList.remove(gameObject.getComponent(TriggerAABB.class));
+        if (gameObject.getComponent(AABB.class) != null) {
+            aabbList.remove(gameObject.getComponent(AABB.class));
         }
     }
 
