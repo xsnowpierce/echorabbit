@@ -4,6 +4,9 @@ import org.joml.Vector2f;
 import snow.pierce.Components.Component;
 import snow.pierce.Components.Transform;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AABB extends Component {
 
     private Vector2f center;
@@ -11,6 +14,7 @@ public class AABB extends Component {
     private boolean PLAYER_TRIGGER_INSIDE;
     private AABB player;
     private boolean isTrigger = false;
+    private final List<TriggerListener> triggerListenerList = new ArrayList<TriggerListener>();
 
     public AABB(Vector2f center, Vector2f half_extent) {
         this.center = center;
@@ -63,23 +67,30 @@ public class AABB extends Component {
         this.player = player;
     }
 
-    protected void PlayerStayTrigger() {
-    }
-
-    protected void PlayerEnterTrigger() {
-    }
-
-    protected void PlayerExitTrigger() {
-    }
-
-    @Override
-    public void Update() {
-        if (PLAYER_TRIGGER_INSIDE) {
-            if (!getCollision(player).isIntersecting) {
-                PlayerExitTrigger();
-                PLAYER_TRIGGER_INSIDE = false;
-            } else PlayerStayTrigger();
+    public void PlayerEnterTrigger() {
+        for (TriggerListener listener : triggerListenerList) {
+            listener.PlayerEnterTrigger();
         }
+    }
+
+    public void PlayerStayTrigger() {
+        for (TriggerListener listener : triggerListenerList) {
+            listener.PlayerStayTrigger();
+        }
+    }
+
+    public void PlayerExitTrigger() {
+        for (TriggerListener listener : triggerListenerList) {
+            listener.PlayerExitTrigger();
+        }
+    }
+
+    public void AddTriggerListener(TriggerListener listener) {
+        triggerListenerList.add(listener);
+    }
+
+    public void RemoveTriggerListener(TriggerListener listener) {
+        triggerListenerList.remove(listener);
     }
 
     public Vector2f getCenter() {

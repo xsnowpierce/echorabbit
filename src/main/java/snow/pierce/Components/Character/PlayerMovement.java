@@ -22,9 +22,11 @@ public class PlayerMovement extends Component {
     private boolean isMovementPressed = false;
     private Vector2i currentChunkPosition;
     private AABB boundingBox;
+    private List<AABB> touchingAABBTriggers;
 
     @Override
     public void Start() {
+        touchingAABBTriggers = new ArrayList<>();
         currentChunkPosition = ((LevelScene) Window.getScene()).getCurrentLevel().getGridPosition(gameObject.transform.position);
         boundingBox = new AABB(gameObject.transform.position, new Vector2f(gameObject.transform.scale.x / 2, gameObject.transform.scale.y / 2));
     }
@@ -32,6 +34,7 @@ public class PlayerMovement extends Component {
     @Override
     public void Update() {
         boundingBox.UpdatePosition(gameObject.transform.position);
+        CheckCurrentTriggers();
 
         isMovementPressed = false;
         Vector2f attemptedMovement = calculateAttemptedMovement();
@@ -96,13 +99,33 @@ public class PlayerMovement extends Component {
         for (AABB aabb : aabbList) {
             if (aabb != null && boundingBox.getCollision(aabb).isIntersecting) {
                 if (aabb.IsTrigger()) {
-                    aabb.playerTouchingTrigger(boundingBox);
+                    CheckCollisionWithTrigger(aabb);
                     continue;
                 }
                 return true;
             }
         }
         return false;
+    }
+
+    private void CheckCollisionWithTrigger(AABB trigger) {
+        if (!touchingAABBTriggers.contains(trigger)) {
+            touchingAABBTriggers.add(trigger);
+            trigger.PlayerEnterTrigger();
+        }
+    }
+
+    private void CheckCurrentTriggers() {
+        List<AABB> triggerList = new ArrayList<>(touchingAABBTriggers);
+
+        for (AABB trigger : triggerList) {
+            if (trigger != null && trigger.IsTrigger()) {
+                if (!trigger.getCollision(boundingBox).isIntersecting) {
+                    trigger.PlayerExitTrigger();
+                    touchingAABBTriggers.remove(trigger);
+                } else trigger.PlayerStayTrigger();
+            }
+        }
     }
 
     private void checkChunkTransition(Vector2f position) {

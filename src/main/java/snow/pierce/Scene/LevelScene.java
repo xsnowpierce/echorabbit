@@ -2,7 +2,7 @@ package snow.pierce.Scene;
 
 import org.joml.Vector2f;
 import snow.pierce.Collision.AABB;
-import snow.pierce.Collision.CollTest;
+import snow.pierce.Collision.TestCollTrigger;
 import snow.pierce.Components.*;
 import snow.pierce.Components.Character.CharacterSpriteAnimator;
 import snow.pierce.Components.Character.PlayerMovement;
@@ -10,6 +10,7 @@ import snow.pierce.Level.ChunkLoader;
 import snow.pierce.Level.Level;
 import snow.pierce.Renderer.Camera;
 import snow.pierce.Renderer.SpriteSheet;
+import snow.pierce.Sound.Sound;
 import snow.pierce.UI.UIObject;
 import snow.pierce.Util.AssetPool;
 import snow.pierce.Util.Colour;
@@ -62,8 +63,14 @@ public class LevelScene extends Scene {
 
         GameObject collTest = new GameObject("colltest", new Transform(new Vector2f(16, 16), new Vector2f(16, 16)), SpriteLayer.ITEM_LAYER);
         collTest.addComponent(new SpriteRenderer(Color.MAGENTA));
-        collTest.addComponent(new CollTest(collTest.transform, true));
+        collTest.addComponent(new AABB(collTest.transform, true));
+        collTest.addComponent(new TestCollTrigger());
         addGameObjectToScene(collTest);
+
+        Sound sound = AssetPool.addSound("sfd.ogg", true);
+        if (sound == null) {
+            System.out.println("sound null");
+        } else sound.play();
     }
 
     public List<AABB> getAabbList() {
@@ -96,6 +103,8 @@ public class LevelScene extends Scene {
         AssetPool.addSpriteSheet(AssetPool.getImagesPath() + "tiles.png",
                 new SpriteSheet(AssetPool.getTexture(AssetPool.getImagesPath() + "tiles.png"),
                         16, 16, 3, 0));
+
+
     }
 
     @Override
