@@ -9,12 +9,17 @@ import java.util.List;
 
 public class AABB extends Component {
 
+    private final List<TriggerListener> triggerListenerList = new ArrayList<>();
     private Vector2f center;
     private final Vector2f half_extent;
+    private ColliderType colliderType = ColliderType.STATIC;
+    private Vector2f velocity = new Vector2f(0, 0);
+    private Vector2f lastFramePosition;
+
     private boolean PLAYER_TRIGGER_INSIDE;
     private AABB player;
     private boolean isTrigger = false;
-    private final List<TriggerListener> triggerListenerList = new ArrayList<TriggerListener>();
+    private boolean hasUpdatedPosition = false;
 
     public AABB(Vector2f center, Vector2f half_extent) {
         this.center = center;
@@ -38,6 +43,31 @@ public class AABB extends Component {
         this.isTrigger = isTrigger;
     }
 
+    public AABB(Transform transform, ColliderType colliderType, boolean isTrigger) {
+        this.center = transform.position;
+        this.half_extent = new Vector2f(transform.scale.x / 2, transform.scale.y / 2);
+        this.isTrigger = isTrigger;
+        this.colliderType = colliderType;
+    }
+
+    @Override
+    public void Update() {
+        if (colliderType != ColliderType.DYNAMIC) return;
+
+        if (!hasUpdatedPosition) {
+            lastFramePosition = gameObject.transform.position;
+            hasUpdatedPosition = true;
+            return;
+        }
+
+        velocity = new Vector2f(gameObject.transform.position.x - lastFramePosition.x, gameObject.transform.position.y - lastFramePosition.y);
+
+        lastFramePosition = gameObject.transform.position;
+
+        center = gameObject.transform.position;
+    }
+
+    // Collision detection method
     public Collision getCollision(AABB box2) {
         Vector2f distance = box2.center.sub(center, new Vector2f());
         distance.x = Math.abs(distance.x);
@@ -49,14 +79,22 @@ public class AABB extends Component {
         // Check for overlap
         boolean isColliding = distance.x < totalExtent.x && distance.y < totalExtent.y;
 
-        // Return the collision result
-        return new Collision(distance, isColliding);
+        // If colliding, calculate penetration depth
+        Vector2f penetrationDepth = new Vector2f(0, 0);
+        if (isColliding) {
+            penetrationDepth.x = totalExtent.x - distance.x;
+            penetrationDepth.y = totalExtent.y - distance.y;
+        }
+
+        return new Collision(distance, isColliding, penetrationDepth);
     }
 
+    // Update position of the collider
     public void UpdatePosition(Vector2f center) {
         this.center = center;
     }
 
+    // Trigger logic
     public void playerTouchingTrigger(AABB player) {
         if (!isTrigger) return;
 
@@ -93,6 +131,15 @@ public class AABB extends Component {
         triggerListenerList.remove(listener);
     }
 
+    // Getter and setter for velocity
+    public Vector2f getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(Vector2f velocity) {
+        this.velocity.set(velocity);
+    }
+
     public Vector2f getCenter() {
         return center;
     }
@@ -109,4 +156,12 @@ public class AABB extends Component {
         this.isTrigger = isTrigger;
     }
 
+    public void SetColliderType(ColliderType colliderType) {
+        this.colliderType = colliderType;
+    }
+
+    public ColliderType GetColliderType() {
+        return this.colliderType;
+    }
 }
+

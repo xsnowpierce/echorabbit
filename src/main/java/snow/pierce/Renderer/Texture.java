@@ -16,6 +16,7 @@ import static org.lwjgl.stb.STBImage.stbi_image_free;
 import static org.lwjgl.stb.STBImage.stbi_set_flip_vertically_on_load;
 
 public class Texture {
+
     private final String filepath;
     private final int texID;
     private final Vector2f imageSize = new Vector2f();
@@ -94,4 +95,5 @@ public class Texture {
     public Vector2f GetImageSize(){
         return imageSize;
     }
+
 }

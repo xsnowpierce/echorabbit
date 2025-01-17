@@ -5,8 +5,9 @@ import org.joml.Vector4f;
 import snow.pierce.Renderer.FontReader;
 import snow.pierce.Renderer.Window;
 import snow.pierce.UI.UIObject;
-import snow.pierce.Util.Colour;
 import snow.pierce.Util.SpriteLayer;
+
+import java.awt.*;
 
 public class TextObject extends UIObject {
 
@@ -30,19 +31,11 @@ public class TextObject extends UIObject {
         CreateText();
     }
 
-    public TextObject(String text, Vector2f position, Vector4f colour) {
+    public TextObject(String text, Vector2f position, Color colour) {
         super("text");
         transform.position = position;
         this.text = text;
-        this.colour = colour;
-        CreateText();
-    }
-
-    public TextObject(String text, Vector2f position, Colour colour) {
-        super("text");
-        transform.position = position;
-        this.text = text;
-        this.colour = colour.getVector4f();
+        this.colour = new Vector4f(colour.getRed(), colour.getGreen(), colour.getBlue(), colour.getAlpha());
         CreateText();
     }
 

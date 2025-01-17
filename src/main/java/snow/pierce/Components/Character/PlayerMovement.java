@@ -38,13 +38,15 @@ public class PlayerMovement extends Component {
 
         isMovementPressed = false;
         Vector2f attemptedMovement = calculateAttemptedMovement();
-        if (attemptedMovement.length() == 0) return;
 
-        Vector2f resolvedPosition = resolveMovement(gameObject.transform.position, attemptedMovement);
+        if (attemptedMovement.length() != 0) {
 
-        // Update position and handle chunk transition
-        gameObject.transform.position.set(resolvedPosition);
-        checkChunkTransition(resolvedPosition);
+            Vector2f resolvedMovement = resolveMovement(attemptedMovement);
+
+            // Update position and handle chunk transition
+            gameObject.transform.position.set(resolvedMovement);
+            checkChunkTransition(resolvedMovement);
+        }
     }
 
     private Vector2f calculateAttemptedMovement() {
@@ -59,7 +61,7 @@ public class PlayerMovement extends Component {
 
         for (int i = 0; i < keys.length; i++) {
             if (KeyListener.isKeyPressed(keys[i])) {
-                attemptedMovement.add(directions[i]);
+                attemptedMovement.add(new Vector2f(directions[i]));
                 lastMovement.set(directions[i]).normalize();
                 isMovementPressed = true;
             }
@@ -67,9 +69,9 @@ public class PlayerMovement extends Component {
         return attemptedMovement;
     }
 
-    private Vector2f resolveMovement(Vector2f currentPosition, Vector2f attemptedMovement) {
+    private Vector2f resolveMovement(Vector2f attemptedMovement) {
         LevelScene levelScene = (LevelScene) Window.getScene();
-        Vector2f resolvedPosition = new Vector2f(currentPosition);
+        Vector2f resolvedPosition = new Vector2f(gameObject.transform.position);
 
         // Combine X and Y collision checks into a single loop
         Vector2f[] axes = {
@@ -87,6 +89,18 @@ public class PlayerMovement extends Component {
         }
 
         return resolvedPosition;
+    }
+
+    private AABB getFirstCollidingAABB(LevelScene levelScene, AABB boundingBox) {
+        List<AABB> aabbList = new ArrayList<>(levelScene.getChunkLoader().getAABBs());
+        aabbList.addAll(levelScene.getAabbList());
+
+        for (AABB aabb : aabbList) {
+            if (aabb != null && boundingBox.getCollision(aabb).isIntersecting) {
+                return aabb;
+            }
+        }
+        return null;
     }
 
     private boolean isCollidingWithAnyAABB(LevelScene levelScene, AABB boundingBox) {

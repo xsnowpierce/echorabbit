@@ -2,6 +2,8 @@ package snow.pierce.Scene;
 
 import org.joml.Vector2f;
 import snow.pierce.Collision.AABB;
+import snow.pierce.Collision.ColliderType;
+import snow.pierce.Collision.MoveColliderTest;
 import snow.pierce.Collision.TestCollTrigger;
 import snow.pierce.Components.*;
 import snow.pierce.Components.Character.CharacterSpriteAnimator;
@@ -11,9 +13,7 @@ import snow.pierce.Level.Level;
 import snow.pierce.Renderer.Camera;
 import snow.pierce.Renderer.SpriteSheet;
 import snow.pierce.Sound.Sound;
-import snow.pierce.UI.UIObject;
 import snow.pierce.Util.AssetPool;
-import snow.pierce.Util.Colour;
 import snow.pierce.Util.PlayerSpriteSet;
 import snow.pierce.Util.SpriteLayer;
 
@@ -55,7 +55,7 @@ public class LevelScene extends Scene {
         addGameObjectToScene(player);
 
 
-        TextObject text = new TextObject("Text", new Vector2f(5, 5), Colour.BLACK);
+        TextObject text = new TextObject("Text", new Vector2f(5, 5), Color.WHITE);
 
         //UIObject image = new UIObject("text background", new Transform(new Vector2f(0, 0), new Vector2f(Window.getWidth(), 20)), SpriteLayer.UI_LAYER.getValue() - 1);
         //image.addComponent(new SpriteRenderer(Colour.WHITE));
@@ -66,6 +66,12 @@ public class LevelScene extends Scene {
         collTest.addComponent(new AABB(collTest.transform, true));
         collTest.addComponent(new TestCollTrigger());
         addGameObjectToScene(collTest);
+
+        GameObject collTest2 = new GameObject("colltest", new Transform(new Vector2f(16, 32), new Vector2f(16, 16)), SpriteLayer.ENTITY_LAYER);
+        collTest2.addComponent(new SpriteRenderer(Color.RED));
+        collTest2.addComponent(new AABB(collTest2.transform, ColliderType.DYNAMIC, false));
+        collTest2.addComponent(new MoveColliderTest());
+        addGameObjectToScene(collTest2);
 
         Sound sound = AssetPool.addSound("sfd.ogg", true);
         if (sound == null) {
@@ -118,10 +124,6 @@ public class LevelScene extends Scene {
         // Load chunks safely
         chunkLoader.LoadChunksAround(0, currentLevel.getGridPosition(player.transform.position));
         //DebugDraw.draw();
-
-        for (UIObject ui : this.uiObjects) {
-            ui.Update();
-        }
     }
 
     public ChunkLoader getChunkLoader() {
