@@ -18,8 +18,23 @@ import static org.lwjgl.stb.STBImage.stbi_set_flip_vertically_on_load;
 public class Texture {
 
     private final String filepath;
-    private final int texID;
+    private final transient int texID;
     private final Vector2f imageSize = new Vector2f();
+
+    public Texture() {
+        texID = -1;
+        filepath = "ERROR_TEXTURE";
+    }
+
+    public Texture(int width, int height) {
+
+        this.filepath = "GENERATED_TEXTURE";
+
+        // Generate texture on GPU
+        texID = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, texID);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+    }
 
     public Texture(String filepath) {
         this.filepath = filepath;
@@ -94,6 +109,24 @@ public class Texture {
 
     public Vector2f GetImageSize(){
         return imageSize;
+    }
+
+    public int getTextureID() {
+        return texID;
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (!(o instanceof Texture other)) return false;
+        return other.imageSize.x == imageSize.x
+                && other.imageSize.y == imageSize.y
+                && other.filepath.equals(filepath)
+                && other.texID == texID;
     }
 
 }
