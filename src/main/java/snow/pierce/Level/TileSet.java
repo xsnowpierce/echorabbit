@@ -2,16 +2,14 @@ package snow.pierce.Level;
 
 import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonObject;
-import org.joml.Vector2f;
+import org.joml.Vector2i;
 import snow.pierce.Level.Tiles.Tile;
 
 import java.math.BigDecimal;
 
 public class TileSet {
-    private int tileCount;
 
-    private Vector2f tileSize;
-    private Tile[] tiles;
+    private final Vector2i tileSize;
 
     public TileSet(JsonObject tileSet) {
 
@@ -19,7 +17,7 @@ public class TileSet {
 
         int tileSizeX = ((BigDecimal) tileSet.get("tilewidth")).intValue();
         int tileSizeY = ((BigDecimal) tileSet.get("tileheight")).intValue();
-        tileSize = new Vector2f(tileSizeX, tileSizeY);
+        tileSize = new Vector2i(tileSizeX, tileSizeY);
 
 
         JsonArray tiles = (JsonArray) tileSet.get("tiles");
@@ -34,4 +32,17 @@ public class TileSet {
             this.tiles[i] = newTile;
         }
     }
+
+    private final int tileCount;
+
+    public int getTileCount() {
+        return tileCount;
+    }
+    private final Tile[] tiles;
+
+    public Vector2i getTileSize() {
+        return tileSize;
+    }
+
+
 }

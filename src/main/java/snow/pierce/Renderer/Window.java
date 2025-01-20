@@ -28,9 +28,7 @@ public class Window implements Observer {
     private final int height;
     private final String title;
     private long glfwWindow;
-    private final int targetFPS = 60;
     public float r, g, b, a;
-    private final boolean fadeToBlack = false;
 
     private static Window window = null;
 
@@ -40,8 +38,8 @@ public class Window implements Observer {
     private static Scene currentScene;
 
     private Window() {
-        this.width = 432;
-        this.height = 480;
+        this.width = 576;
+        this.height = 640;
         this.title = "Game";
         EventSystem.addObserver(this);
     }
@@ -163,8 +161,6 @@ public class Window implements Observer {
         Window.changeScene(0);
     }
 
-
-    double frameTime = 1.0 / targetFPS; // Time per frame in seconds
     long lastTime = System.nanoTime();
 
     public void loop() {
@@ -175,15 +171,6 @@ public class Window implements Observer {
         float endTime;
 
         while (!glfwWindowShouldClose(glfwWindow)) {
-
-            long currentTime = System.nanoTime();
-
-            double elapsedTime = (currentTime - lastTime) / 1_000_000_000.0;
-
-            while (elapsedTime < frameTime) {
-                currentTime = System.nanoTime();
-                elapsedTime = (currentTime - lastTime) / 1_000_000_000.0;
-            }
 
             lastTime = System.nanoTime();
 

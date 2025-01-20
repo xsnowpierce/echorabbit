@@ -4,7 +4,7 @@ import org.joml.Vector2f;
 
 public class Sprite {
 
-    private Texture texture;
+    private Texture texture = null;
     private final Vector2f[] texCoords;
 
     public Sprite(Texture texture){

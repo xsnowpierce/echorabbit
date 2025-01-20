@@ -6,12 +6,29 @@ import org.joml.Vector3f;
 
 public class Camera {
 
-    private Matrix4f projectionMatrix, viewMatrix;
+    private final Matrix4f projectionMatrix;
+    private final Matrix4f viewMatrix;
     public Vector2f position;
-    private Vector2f size = new Vector2f(144, 160);
+    private final int targetWidth = 144, targetHeight = 160;
+    private final int width;
+    private final int height;
 
     public Camera(Vector2f position) {
         this.position = position;
+
+        float targetAspectRatio = (float) targetWidth / targetHeight;
+        float windowAspectRatio = (float) Window.getWidth() / Window.getHeight();
+
+        if (windowAspectRatio > targetAspectRatio) {
+            height = targetHeight;
+            width = Math.round(targetHeight * windowAspectRatio);
+        } else {
+            height = Math.round(targetWidth / windowAspectRatio);
+            width = targetWidth;
+        }
+
+        System.out.println("Camera created with size " + width + "," + height);
+
         this.projectionMatrix = new Matrix4f();
         this.viewMatrix = new Matrix4f();
         adjustProjection();
@@ -19,7 +36,8 @@ public class Camera {
 
     public void adjustProjection() {
         projectionMatrix.identity();
-        projectionMatrix.ortho(0.0f, size.x, 0.0f, size.y, 0.0f, 100.0f);
+
+        projectionMatrix.ortho(0.0f, width, 0.0f, height, 0.0f, 100.0f);
     }
 
     public Matrix4f getViewMatrix() {
@@ -37,7 +55,11 @@ public class Camera {
         return this.projectionMatrix;
     }
 
-    public Vector2f getSize(){
-        return size;
+    public int getHeight() {
+        return this.height;
+    }
+
+    public int getWidth() {
+        return this.width;
     }
 }

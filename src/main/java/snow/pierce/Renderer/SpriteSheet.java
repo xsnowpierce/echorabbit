@@ -1,15 +1,14 @@
 package snow.pierce.Renderer;
 
 import org.joml.Vector2f;
-import snow.pierce.Util.SpriteNormal;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SpriteSheet {
 
-    private Texture texture;
-    private List<Sprite> sprites;
+    private final Texture texture;
+    private final List<Sprite> sprites;
 
     public SpriteSheet(Texture texture, int spriteWidth, int spriteHeight, int numSprites, int spacing){
         this.sprites = new ArrayList<>();
@@ -17,13 +16,13 @@ public class SpriteSheet {
         this.texture = texture;
 
         int currentX = 0;
-        int currentY = ((int) texture.GetImageSize().y) - spriteHeight;
+        int currentY = texture.getImageHeight() - spriteHeight;
 
         for(int i = 0; i < numSprites; i++){
-            float topY = (currentY + spriteHeight) / texture.GetImageSize().y;
-            float rightX = (currentX + spriteWidth) / texture.GetImageSize().x;
-            float leftX = currentX / texture.GetImageSize().x;
-            float bottomY = currentY / texture.GetImageSize().y;
+            float topY = (currentY + spriteHeight) / (float) texture.getImageHeight();
+            float rightX = (currentX + spriteWidth) / (float) texture.getImageWidth();
+            float leftX = currentX / (float) texture.getImageWidth();
+            float bottomY = currentY / (float) texture.getImageHeight();
 
             Vector2f[] texCoords = {
                     new Vector2f(rightX, topY),
@@ -36,7 +35,7 @@ public class SpriteSheet {
             sprites.add(sprite);
 
             currentX += spriteWidth + spacing;
-            if(currentX >= texture.GetImageSize().x){
+            if (currentX >= texture.getImageWidth()) {
                 currentX = 0;
                 currentY -= spriteHeight + spacing;
             }

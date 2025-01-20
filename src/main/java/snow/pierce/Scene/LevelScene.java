@@ -5,14 +5,16 @@ import snow.pierce.Collision.AABB;
 import snow.pierce.Collision.ColliderType;
 import snow.pierce.Collision.MoveColliderTest;
 import snow.pierce.Collision.TestCollTrigger;
-import snow.pierce.Components.*;
+import snow.pierce.Components.CameraFollow;
 import snow.pierce.Components.Character.CharacterSpriteAnimator;
 import snow.pierce.Components.Character.PlayerMovement;
+import snow.pierce.Components.GameObject;
+import snow.pierce.Components.SpriteRenderer;
+import snow.pierce.Components.Transform;
 import snow.pierce.Level.ChunkLoader;
 import snow.pierce.Level.Level;
 import snow.pierce.Renderer.Camera;
 import snow.pierce.Renderer.SpriteSheet;
-import snow.pierce.Sound.Sound;
 import snow.pierce.Util.AssetPool;
 import snow.pierce.Util.PlayerSpriteSet;
 import snow.pierce.Util.SpriteLayer;
@@ -45,17 +47,14 @@ public class LevelScene extends Scene {
 
         currentLevel = new Level(AssetPool.getLevelPath() + "newlevel.json");
 
-        chunkLoader = new ChunkLoader(tiles, currentLevel, 1);
+        chunkLoader = new ChunkLoader(tiles, currentLevel, 2);
 
         player = new GameObject("Player", new Transform(new Vector2f(0, 0), new Vector2f(16, 16)), SpriteLayer.ENTITY_LAYER);
         player.addComponent(new PlayerMovement());
         player.addComponent(new SpriteRenderer(sprites.GetSprite(0)));
-        player.addComponent(new CameraFollow(new Vector2f(-camera.getSize().x / 2f, -camera.getSize().y / 2f)));
-        player.addComponent(new CharacterSpriteAnimator(PlayerSpriteSet.GetPlayerSpriteMap(), 8, player.getComponent(SpriteRenderer.class), player.getComponent(PlayerMovement.class)));
+        player.addComponent(new CameraFollow(new Vector2f(-camera.getWidth() / 2f, -camera.getHeight() / 2f)));
+        player.addComponent(new CharacterSpriteAnimator(PlayerSpriteSet.GetPlayerSpriteMap(), 3, player.getComponent(SpriteRenderer.class), player.getComponent(PlayerMovement.class)));
         addGameObjectToScene(player);
-
-
-        TextObject text = new TextObject("Text", new Vector2f(5, 5), Color.WHITE);
 
         //UIObject image = new UIObject("text background", new Transform(new Vector2f(0, 0), new Vector2f(Window.getWidth(), 20)), SpriteLayer.UI_LAYER.getValue() - 1);
         //image.addComponent(new SpriteRenderer(Colour.WHITE));
@@ -73,10 +72,10 @@ public class LevelScene extends Scene {
         collTest2.addComponent(new MoveColliderTest());
         addGameObjectToScene(collTest2);
 
-        Sound sound = AssetPool.addSound("sfd.ogg", true);
-        if (sound == null) {
-            System.out.println("sound null");
-        } else sound.play();
+        //Sound sound = AssetPool.addSound("sfd.ogg", true);
+        //if (sound == null) {
+        //    System.out.println("sound null");
+        //} else sound.play();
     }
 
     public List<AABB> getAabbList() {
@@ -109,8 +108,6 @@ public class LevelScene extends Scene {
         AssetPool.addSpriteSheet(AssetPool.getImagesPath() + "tiles.png",
                 new SpriteSheet(AssetPool.getTexture(AssetPool.getImagesPath() + "tiles.png"),
                         16, 16, 3, 0));
-
-
     }
 
     @Override
@@ -119,6 +116,7 @@ public class LevelScene extends Scene {
         for (GameObject go : new ArrayList<>(this.gameObjects)) {
             go.Update();
         }
+        //System.out.println("Rendered " + gameObjects.size() + " gameobjects.");
         this.renderer.render();
 
         // Load chunks safely

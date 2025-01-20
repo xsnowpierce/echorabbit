@@ -9,6 +9,8 @@ import snow.pierce.EventSystem.Events.PlayerEnterChunkEvent;
 import snow.pierce.Listener.KeyListener;
 import snow.pierce.Renderer.Window;
 import snow.pierce.Scene.LevelScene;
+import snow.pierce.Util.Time;
+import snow.pierce.Util.VectorDirection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +19,8 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class PlayerMovement extends Component {
 
-    private final float playerMoveSpeed = 1;
-    private final Vector2f lastMovement = new Vector2f(0, -1);
+    private final float playerMoveSpeed = 55;
+    private VectorDirection lastMovement = VectorDirection.DOWN;
     private boolean isMovementPressed = false;
     private Vector2i currentChunkPosition;
     private AABB boundingBox;
@@ -61,8 +63,8 @@ public class PlayerMovement extends Component {
 
         for (int i = 0; i < keys.length; i++) {
             if (KeyListener.isKeyPressed(keys[i])) {
-                attemptedMovement.add(new Vector2f(directions[i]));
-                lastMovement.set(directions[i]).normalize();
+                attemptedMovement.add(new Vector2f(directions[i].mul(Time.deltaTime)));
+                lastMovement = VectorDirection.GetDirectionFromVector2f(directions[i]);
                 isMovementPressed = true;
             }
         }
@@ -151,7 +153,7 @@ public class PlayerMovement extends Component {
         }
     }
 
-    public Vector2f getLastMovement() {
+    public VectorDirection getLastMovement() {
         return lastMovement;
     }
 
